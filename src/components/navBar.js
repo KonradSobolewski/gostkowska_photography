@@ -7,6 +7,9 @@ function NavBar() {
         O mnie
       </li>
       <li>
+        Oferta
+      </li>      
+      <li>
         Galeria
       </li>
       <li>
