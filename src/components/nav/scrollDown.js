@@ -26,7 +26,7 @@ const ScrollDown = () => {
               <Lottie
                     options={defaultOptions}
                     height={150}
-                    width={200}
+                    width={75}
                     isStopped={false}
                     isPaused={false}
                 />
