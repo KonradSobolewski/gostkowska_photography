@@ -50,7 +50,7 @@ const NavLogoTab = styled(Tab)`
 
 const Img = styled.img`
   filter: drop-shadow(0px 0px 4px #fff);
-  width: ${(props) => (props.show ? "8em" : "5em")};
+  width: 8em;
   transition: all 0.5s ease-in-out;
 `;
 

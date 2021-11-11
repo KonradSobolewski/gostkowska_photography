@@ -1,11 +1,12 @@
 import React from "react";
 import "../style/App.css";
 import MARTIX from "../assets/martix.jpg";
-import styled , { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { isMobile } from "react-device-detect";
 
 const Container = styled.div`
-  padding: 5em 5em;
-  margin: 5em;
+  padding: ${(props) => (props.isMobile ? "1em" : "1em 5em 4em 5em")};
+  margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 0em 4em ")};
 
   position: relative;
 `;
@@ -14,16 +15,23 @@ const MartynaDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
 `;
 
 const Img = styled.img`
-  padding: 0 0 0 5em;
-  width: 30em;
-  transform: translateX(15%);
+  padding: ${(props) => (props.isMobile ? "1em" : " 0 0 0 5em")};
+  width: ${(props) => (props.isMobile ? "16em" : "30em")};
+  transform: ${(props) =>
+    props.isMobile ? " translateY(15%)" : " translateX(15%)"};
   filter: drop-shadow(3px 5px 7px #888);
   z-index: 2;
 `;
 
+const Motto = styled.div`
+  text-align: center;
+  font-size: 2em;
+  margin: 2em;
+`;
 const Text = styled.div`
   display: flex;
   justify-content: center;
@@ -31,9 +39,13 @@ const Text = styled.div`
   flex-direction: column;
   text-align: center;
 
-  padding: 5em 5em 5em 15em;
-  background-color: #fdf7e4;
-  border-radius: 5em;
+  padding: ${(props) =>
+    props.isMobile ? "7em 2em 2em 2em" : "5em 5em 5em 15em"};
+  font-size: ${(props) => (props.isMobile ? "0.8em" : "1em")};
+  color: white;
+  background-image: linear-gradient(90deg, #717171, #505252);
+  border-radius: ${(props) => (props.isMobile ? "3em" : "5em")};
+  letter-spacing: 0.4px;
 `;
 
 const move = keyframes`
@@ -49,52 +61,69 @@ const moveOpposite = keyframes`
 `;
 
 const Cloud = styled.div`
+  display: ${(props) => (props.isMobile ? "none" : "initial")};
   position: absolute;
-  top: 10em;
-  right: 40em;
-  left: 30em;
+  top: ${(props) => props.position.top};
+  right: ${(props) => props.position.right};
+  left: ${(props) => props.position.left};
+  bottom: ${(props) => props.position.bottom};
   background-color: #ece5d2;
   height: 12em;
-  z-index: 1;
+  z-index: ${(props) => (props.zIndex ? props.zIndex : 0)};
 
-  animation: ${move} 20s infinite;
+  animation: ${(props) => props.animation} 20s infinite;
+  animation-delay: ${(props) => (props.delay ? props.delay : 0)};
 `;
 
-const Cloud2 = styled.div`
-  position: absolute;
-  bottom: 10em;
-  right: 60em;
-  left: 0em;
-  background-color: #ece5d2;
-  height: 12em;
-  z-index: 1;
-
-  animation: ${move} 20s infinite;
-  animation-delay: 4s;
+const slide = keyframes`
+  0% {
+    transform:translateX(25%);
+  }
+  100% {
+    transform:translateX(-25%);
+  }
 `;
 
-const Cloud3 = styled.div`
-  position: absolute;
-  bottom: 15em;
-  right: 0em;
-  left: 70em;
-  background-color: #ece5d2;
-  height: 12em;
-  z-index: -1;
+const Bg = styled.div`
+  animation: ${slide} 15s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #FFF 50%, #FFF7E3 50%);
+  bottom: 0;
+  left: -50%;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -10;
+  opacity: 0.5;
+`;
 
-  animation: ${moveOpposite} 20s infinite;
-  animation-delay: 2s;
+const Bg2 = styled(Bg)`
+  animation-direction: alternate-reverse;
+  animation-duration: 25s;
+  background-image: linear-gradient(120deg, #FFFCF6 50%, #FFF7E3 50%);
+`;
+
+const Bg3 = styled(Bg)`
+  animation-duration: 30s;
+  background-image: linear-gradient(-60deg, #FFF 50%, #FFF7E3 50%);
 `;
 
 function Content() {
   return (
-    <Container>
-      <Cloud></Cloud>
-      <MartynaDiv>
-        <Img src={MARTIX} id="martyna" alt={"Martyna image"} />
-        <Text>
+    <Container isMobile={isMobile}>
+      <Bg />
+      <Bg2 />
+      <Bg3 />
+      <Motto>Unique moments closed in the photos</Motto>
+      <MartynaDiv isMobile={isMobile}>
+        <Img
+          src={MARTIX}
+          id="martyna"
+          alt={"Martyna image"}
+          isMobile={isMobile}
+        />
+        <Text isMobile={isMobile}>
           <div>
-            Cześć ! Miło mi Ciebie poznać!
+            Cześć! Miło mi Ciebie poznać!
             <br />
             <br />
           </div>
@@ -120,8 +149,37 @@ function Content() {
           </div>
         </Text>
       </MartynaDiv>
-      <Cloud2></Cloud2>
-      <Cloud3></Cloud3>
+      <Cloud
+        isMobile={isMobile}
+        position={{
+          top: "25%",
+          right: "40%",
+          left: "18%",
+        }}
+        animation={move}
+        delay={0}
+      ></Cloud>
+      <Cloud
+        isMobile={isMobile}
+        position={{
+          bottom: "10%",
+          right: "45%",
+          left: "10%",
+        }}
+        animation={moveOpposite}
+        delay={"4s"}
+      ></Cloud>
+      <Cloud
+        isMobile={isMobile}
+        position={{
+          bottom: "20%",
+          right: "0em",
+          left: "65%",
+        }}
+        zIndex={-1}
+        animation={move}
+        delay={"2s"}
+      ></Cloud>
     </Container>
   );
 }
