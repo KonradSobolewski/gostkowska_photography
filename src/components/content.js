@@ -29,8 +29,9 @@ const Img = styled.img`
 
 const Motto = styled.div`
   text-align: center;
-  font-size: 2em;
-  margin: 2em;
+  font-size: 4em;
+  margin: 1em;
+  font-family: 'Billion Miracles';
 `;
 const Text = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ const Text = styled.div`
   align-items: center;
   flex-direction: column;
   text-align: center;
+  font-family: 'Montaser extra-light';
 
   padding: ${(props) =>
     props.isMobile ? "7em 2em 2em 2em" : "5em 5em 5em 15em"};

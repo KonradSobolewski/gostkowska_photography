@@ -170,7 +170,7 @@ const MobileNavigation = () => {
         <Tab show={show}>Kontakt</Tab>
         <SocialMedia>
           <a
-            href="https://www.instagram.com/gostkowska_martyna/"
+            href="https://www.instagram.com/gostkowskaphotography/"
             target="_blank"
             rel="noreferrer"
           >

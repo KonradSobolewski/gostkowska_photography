@@ -93,7 +93,7 @@ const WebNavigation = () => {
     <Web show={show}>
       <SocialMedia>
         <a
-          href="https://www.instagram.com/gostkowska_martyna/"
+          href="https://www.instagram.com/gostkowskaphotography/"
           target="_blank"
           rel="noreferrer"
         >

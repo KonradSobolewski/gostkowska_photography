@@ -1,6 +1,7 @@
 import './style/App.css';
 import NavBar from './components/nav/navBar';
 import Content from './components/content';
+import Contact from './components/contact/contact';
 import Footer from './components/footer/footer';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
       <NavBar />
       <Content />
+      <Contact />
       <Footer />
     </div>
   );
