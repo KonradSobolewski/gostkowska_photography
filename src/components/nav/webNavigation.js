@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const Web = styled.div`
   color: ${(props) => (props.show ? "#DDD" : "#555")};
+  font-family: "Montaser light";
   background-color: rgba(
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
@@ -86,6 +87,14 @@ const SocialMediaItem = styled.img`
   }
 `;
 
+const A = styled.a`
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: white;
+`;
+
 const WebNavigation = () => {
   const show = useSelector((state) => state.nav).show;
 
@@ -118,8 +127,12 @@ const WebNavigation = () => {
         </a>
       </SocialMedia>
       <NavTabs>
-        <NavTab show={show}>O mnie</NavTab>
-        <NavTab show={show}>Portfolio</NavTab>
+        <NavTab show={show}>
+          <A href="#content"> O mnie</A>
+        </NavTab>
+        <NavTab show={show}>
+          <A href="#content"> Portfolio</A>
+        </NavTab>
         <NavLogoTab show={show}>
           <a href=".">
             <Img
@@ -130,8 +143,12 @@ const WebNavigation = () => {
             />
           </a>
         </NavLogoTab>
-        <NavTab show={show}>Oferta</NavTab>
-        <NavTab show={show}>Kontakt</NavTab>
+        <NavTab show={show}>
+          <A href="#offers">Oferta</A>
+        </NavTab>
+        <NavTab show={show}>
+          <A href="#contact"> Kontakt </A>
+        </NavTab>
       </NavTabs>
       <LoginContainer />
     </Web>

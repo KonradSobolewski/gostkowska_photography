@@ -85,7 +85,7 @@ const Contact = () => {
   };
 
   return (
-    <Container>
+    <Container id="contact">
       <Description>
         Jeśli jesteś zainteresowany moją ofertą zapraszam do szybkiego kontaktu
         poprzez formularz!

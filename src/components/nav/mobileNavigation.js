@@ -6,6 +6,7 @@ import FB from "../../assets/fb.png";
 
 const Background = styled.div`
   color: #555;
+  font-family: "Montaser light";
   background-color: rgba(250, 250, 250, 1);
   transition: color 0.1s, background-color 0.5s ease-in-out;
 `;
@@ -134,6 +135,14 @@ const SocialMediaItem = styled.img`
   transition: all 0.5s ease-in-out;
 `;
 
+const A = styled.a`
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: white;
+`;
+
 // https://codepen.io/erikterwan/pen/EVzeRP
 const MobileNavigation = () => {
   const [show, setShow] = useState(false);
@@ -164,10 +173,17 @@ const MobileNavigation = () => {
         </Hamburger>
       </FirstRow>
       <NavTabs show={show}>
-        <Tab show={show}>O mnie</Tab>
+        <Tab show={show}>
+          <A href="#content">O mnie</A>
+        </Tab>
         <Tab show={show}>Portfolio</Tab>
-        <Tab show={show}>Oferta</Tab>
-        <Tab show={show}>Kontakt</Tab>
+        <Tab show={show}>
+          <A href="#offers">Oferta</A>
+        </Tab>
+        <Tab show={show}>
+          <A href="#contact">Kontakt </A>
+        </Tab>
+
         <SocialMedia>
           <a
             href="https://www.instagram.com/gostkowskaphotography/"
