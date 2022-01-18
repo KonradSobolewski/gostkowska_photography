@@ -5,8 +5,8 @@ import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../style/common";
 
 const Container = styled.div`
-  padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 0em 5em")};
-  margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 0em 4em ")};
+  padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 1em 5em")};
+  margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 1em 4em ")};
   position: relative;
 `;
 
@@ -20,13 +20,12 @@ const Img = styled.img`
   transform: ${(props) =>
     props.isMobile ? " translateY(15%)" : " translateX(15%)"};
   filter: drop-shadow(3px 5px 7px #444);
-  z-index: 2;
 `;
 
 const Motto = styled.div`
   text-align: center;
   font-size: 5em;
-  margin: 0.8em 0 0 0;
+  margin: 0.8em 0;
   font-family: "Billion Miracles";
   white-space: nowrap;
 
@@ -46,10 +45,7 @@ const Motto = styled.div`
   }
 `;
 
-const Text = styled(FlexCenterContainer)`
-  flex-direction: column;
-  text-align: left;
-
+const Text = styled.div`
   padding: ${(props) =>
     props.isMobile ? "7em 2em 2em 2em" : "5em 5em 5em 10em"};
   font-size: ${(props) => (props.isMobile ? "0.8em" : "1em")};
@@ -58,20 +54,16 @@ const Text = styled(FlexCenterContainer)`
   line-height: 1.5;
 `;
 
-const Cloud = styled.div`
+const Title = styled.div`
+  white-space: nowrap;
   display: ${(props) => (props.isMobile ? "none" : "initial")};
   height: 1.3em;
-  z-index: 1;
-  text-align: left;
   font-family: "Billion Miracles";
-  color: #555;
   font-size: 8em;
   padding-bottom: 0.5em;
 `;
 
 const Singature = styled.div`
-  text-align: left;
-  color: #555;
   font-size: 3em;
   font-family: "Billion Miracles";
 `;
@@ -88,7 +80,7 @@ function Content() {
           isMobile={isMobile}
         />
         <Text isMobile={isMobile}>
-          <Cloud isMobile={isMobile}>O mnie</Cloud>
+          <Title isMobile={isMobile}>O mnie</Title>
           <div>
             Cześć!
             <br />

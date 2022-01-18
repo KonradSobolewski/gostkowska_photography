@@ -11,7 +11,7 @@ const FooterStyle = styled(FlexCenterContainer)`
   bottom: 0;
   flex-direction: column;
   background: ${Colors.lightBlack};
-  color: #ddd;
+  color: ${Colors.cream};
 
   @media only screen and (max-width: 600px) {
     font-size: 0.6em;
@@ -60,9 +60,6 @@ const Contact = styled.div`
   color: ${Colors.white};
   text-align: left;
   line-height: 2em;
-
-  display: flex;
-  flex-direction: column;
 `;
 
 const Instagram = styled.div`
