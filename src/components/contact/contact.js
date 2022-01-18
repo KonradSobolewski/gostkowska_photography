@@ -25,7 +25,7 @@ const Form = styled.form`
 
 const Item = styled.div`
   padding: 1em 0;
-  width: ${(props) => (props.isMobile ? "75%" : "50%")}; ;
+  width: ${(props) => (props.isMobile ? "75%" : "50em")}; ;
 `;
 
 const Title = styled.div`

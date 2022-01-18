@@ -13,6 +13,26 @@ import { FlexCenterContainer, Colors } from "../../style/common";
 const Container = styled(FlexCenterContainer)`
   flex-direction: column;
   background: ${Colors.obsidian};
+  padding: 3em 0;
+`;
+
+const Header = styled.div`
+  width: 100%;
+`;
+
+const Text = styled(FlexCenterContainer)`
+  color: ${Colors.white};
+  font-size: 8em;
+  font-family: "Billion Miracles";
+  margin-left: 9em;
+`;
+
+const SecondText = styled(FlexCenterContainer)`
+  color: ${Colors.white};
+  font-size: 4em;
+  font-family: "Billion Miracles";
+  margin-left: 9em;
+  transform: translateY(-40%);
 `;
 
 const InnerContainer = styled.div`
@@ -103,6 +123,10 @@ const Portfolio = () => {
 
   return (
     <Container id="portfolio">
+      <Header>
+        <Text>Portfolio</Text>
+        <SecondText>Zobacz moje prace</SecondText>
+      </Header>
       <InnerContainer>
         <Gallery
           photos={photos}

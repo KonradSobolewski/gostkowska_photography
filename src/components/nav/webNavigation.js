@@ -6,16 +6,17 @@ import FB from "../../assets/fb.png";
 import { useSelector } from "react-redux";
 import { A, FlexCenterContainer } from "../../style/common";
 
-const Web = styled.div`
+const Web = styled(FlexCenterContainer)`
   color: ${(props) => (props.show ? "#DDD" : "#555")};
-
   background-color: rgba(
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0.1 : 1)}
   );
-  transition: color 0.1s, background-color 0.5s ease-in-out;
+  position: relative;
+  height: ${(props) => (props.show ? "8em" : "5em")};
+  transition: color 0.1s, background-color 0.5s, height 0.5s ease-in-out;
 
   :hover {
     background-color: rgba(
@@ -25,23 +26,21 @@ const Web = styled.div`
       ${(props) => (props.show ? 0.4 : 1)}
     );
   }
-
-  display: flex;
-  justify-content: space-between;
 `;
 
 const SocialMedia = styled(FlexCenterContainer)`
-  flex: 1;
+  left: 15%;
+  transform: translate(-15%, 0);
+  position: absolute;
 `;
 
-const NavTabs = styled.div`
-  flex: 1;
-  display: flex;
+const NavTabs = styled(FlexCenterContainer)`
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
 `;
 
-const LoginContainer = styled.div`
-  flex: 1;
-`;
+const LoginContainer = styled(FlexCenterContainer)``;
 
 const Tab = styled.li`
   position: relative;
@@ -49,7 +48,7 @@ const Tab = styled.li`
   cursor: pointer;
   padding: 0px 40px;
   display: flex;
-  font-size: 18px;
+  font-size: 1.2em;
   white-space: nowrap;
   align-items: center;
   transition: all 0.5s ease-in-out;

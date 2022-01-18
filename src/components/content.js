@@ -6,7 +6,7 @@ import { FlexCenterContainer, Colors } from "../style/common";
 
 const Container = styled.div`
   padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 1em 5em")};
-  margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 1em 4em ")};
+  margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 2em 4em ")};
   position: relative;
 `;
 
@@ -52,6 +52,7 @@ const Text = styled.div`
   color: ${Colors.black};
   letter-spacing: 1px;
   line-height: 1.5;
+  width: 60em;
 `;
 
 const Title = styled.div`
