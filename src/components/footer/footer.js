@@ -2,30 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import IG from "../../assets/ig.png";
 import FB from "../../assets/fb.png";
+import { FlexCenterContainer, Colors } from "../../style/common";
 
-const FooterStyle = styled.div`
+const FooterStyle = styled(FlexCenterContainer)`
   font-size: 1m;
   text-align: center;
   position: relative;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  background: #111;
-  color: #DDD;
-  font-family: 'Montaser light';
-  
+  background: ${Colors.lightBlack};
+  color: #ddd;
+
   @media only screen and (max-width: 600px) {
     font-size: 0.6em;
   }
 `;
 
-const Sites = styled.div`
-  display: flex;
+const Sites = styled(FlexCenterContainer)`
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Site = styled.div`
@@ -34,31 +28,24 @@ const Site = styled.div`
   transition: all 0.2s ease-in-out;
 
   :hover {
-    color: white;
+    color: ${Colors.white};
   }
 `;
 
 const Copy = styled.div`
   padding: 2em;
-  color: white;
+  color: ${Colors.white};
 `;
 
-const Upper = styled.div`
-  display: flex;
+const Upper = styled(FlexCenterContainer)`
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   width: -webkit-fill-available;
   padding: 1em;
-  color: white;
+  color: ${Colors.white};
   background-color: #2a2a2a;
 `;
 
-const SocialMedia = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+const SocialMedia = styled(FlexCenterContainer)``;
 
 const SocialMediaItem = styled.img`
   padding: 1em 1em 0 1em;
@@ -70,7 +57,7 @@ const SocialMediaItem = styled.img`
 
 const Contact = styled.div`
   padding: 1em;
-  color: white;
+  color: ${Colors.white};
   text-align: left;
   line-height: 2em;
 
@@ -80,7 +67,7 @@ const Contact = styled.div`
 
 const Instagram = styled.div`
   padding: 1em;
-  color: white;
+  color: ${Colors.white};
 `;
 
 const Footer = () => {

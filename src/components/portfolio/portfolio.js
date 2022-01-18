@@ -8,25 +8,23 @@ import SESSION6 from "../../assets/session1/boho6.jpg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import Gallery from "react-photo-gallery";
+import { FlexCenterContainer, Colors } from "../../style/common";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Container = styled(FlexCenterContainer)`
   flex-direction: column;
-  background: #2d2d2d;
+  background: ${Colors.obsidian};
 `;
 
 const InnerContainer = styled.div`
   margin: 2em;
   max-width: 1000px;
-  background: #2d2d2d;
+  background: ${Colors.obsidian};
 `;
 
 const ImgContainer = styled.div`
   position: relative;
   text-align: center;
-  color: white;
+  color: ${Colors.white};
 `;
 
 const ImgText = styled.div`
@@ -90,7 +88,6 @@ const Portfolio = () => {
   ];
 
   const imageRenderer = useCallback((props) => {
-    console.log(props);
     return (
       <ImgContainer>
         <Img
@@ -102,10 +99,10 @@ const Portfolio = () => {
         <ImgText>{props.photo.text}</ImgText>
       </ImgContainer>
     );
-  });
+  }, []);
 
   return (
-    <Container>
+    <Container id="portfolio">
       <InnerContainer>
         <Gallery
           photos={photos}

@@ -2,6 +2,7 @@ import React from "react";
 import MARTIX from "../assets/martix.jpg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
+import { FlexCenterContainer, Colors } from "../style/common";
 
 const Container = styled.div`
   padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 0em 5em")};
@@ -9,10 +10,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-const MartynaDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const MartynaDiv = styled(FlexCenterContainer)`
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
 `;
 
@@ -48,18 +46,14 @@ const Motto = styled.div`
   }
 `;
 
-const Text = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: left;
+const Text = styled(FlexCenterContainer)`
   flex-direction: column;
   text-align: left;
-  font-family: "Montaser light";
 
   padding: ${(props) =>
     props.isMobile ? "7em 2em 2em 2em" : "5em 5em 5em 10em"};
   font-size: ${(props) => (props.isMobile ? "0.8em" : "1em")};
-  color: black;
+  color: ${Colors.black};
   letter-spacing: 1px;
   line-height: 1.5;
 `;
@@ -102,9 +96,9 @@ function Content() {
           </div>
           <div>
             Mam na imię Martyna i fotografia to moja największa pasja od
-            dziecka. <br /> Pierwszy aparat analogowy dał mi do ręki tata i już wtedy
-            zakochałam się w możliwości uchwycenia nim piękna każdej chwili.
-            Przez ostatnie lata stale udoskonalałam swoje umiejętności i
+            dziecka. <br /> Pierwszy aparat analogowy dał mi do ręki tata i już
+            wtedy zakochałam się w możliwości uchwycenia nim piękna każdej
+            chwili. Przez ostatnie lata stale udoskonalałam swoje umiejętności i
             poszerzałam wiedzę. Uczęszczałam do Akademii Fotografii, w której
             odkryłam swój kierunek w fotografii. Od tego momentu wiem, że
             niezwykłą radość sprawia mi fotografowanie szczęścia i miłości.

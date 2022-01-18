@@ -1,31 +1,25 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { A, FlexCenterContainer } from "../../style/common";
 import logo1 from "../../assets/LOGO.png";
 import IG from "../../assets/ig.png";
 import FB from "../../assets/fb.png";
 
-const Background = styled.div`
+const Background = styled(FlexCenterContainer)`
   color: #555;
-  font-family: "Montaser light";
   background-color: rgba(250, 250, 250, 1);
   transition: color 0.1s, background-color 0.5s ease-in-out;
 `;
 
-const Mobile = styled.div`
-  display: flex;
+const Mobile = styled(FlexCenterContainer)`
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 20px;
 `;
 
 const FirstRow = styled(Background)`
   z-index: 10;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   justify-content: center;
-  align-items: center;
 `;
 
 const LoginContainer = styled.div`
@@ -55,12 +49,9 @@ const Img = styled.img`
   transition: all 0.5s ease-in-out;
 `;
 
-const Hamburger = styled.div`
+const Hamburger = styled(FlexCenterContainer)`
   flex: 1;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
 `;
 
@@ -111,20 +102,14 @@ const Span = styled.span`
 const NavTabs = styled(Background)`
   width: 100%;
   z-index: 0;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   transform: translateY(${(props) => (props.show ? "0%" : "-100%")});
   transition: all 0.5s ease-in-out;
 `;
 
-const SocialMedia = styled.div`
+const SocialMedia = styled(FlexCenterContainer)`
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const SocialMediaItem = styled.img`
@@ -135,15 +120,6 @@ const SocialMediaItem = styled.img`
   transition: all 0.5s ease-in-out;
 `;
 
-const A = styled.a`
-  border: none;
-  outline: none;
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: white;
-`;
-
-// https://codepen.io/erikterwan/pen/EVzeRP
 const MobileNavigation = () => {
   const [show, setShow] = useState(false);
 
@@ -176,7 +152,9 @@ const MobileNavigation = () => {
         <Tab show={show}>
           <A href="#content">O mnie</A>
         </Tab>
-        <Tab show={show}>Portfolio</Tab>
+        <Tab show={show}>
+          <A href="#portfolio">Portfolio</A>
+        </Tab>
         <Tab show={show}>
           <A href="#offers">Oferta</A>
         </Tab>

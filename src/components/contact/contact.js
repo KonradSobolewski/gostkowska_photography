@@ -1,15 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
+import { FlexCenterContainer, Colors } from "../../style/common";
 
-const Container = styled.div`
-  display: flex;
+const Container = styled(FlexCenterContainer)`
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 2em;
-  background: #eee;
-  font-family: 'Montaser light';
+  background: ${Colors.cream};
 `;
 
 const Description = styled.div`
@@ -18,16 +15,17 @@ const Description = styled.div`
 `;
 
 const Form = styled.form`
-position:relative;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 100%;`;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
 
 const Item = styled.div`
   padding: 1em 0;
-  width: ${(props) => (props.isMobile ? "75%" : "50%")};;
+  width: ${(props) => (props.isMobile ? "75%" : "50%")}; ;
 `;
 
 const Title = styled.div`
@@ -36,7 +34,7 @@ const Title = styled.div`
 
 const CustomInput = styled.input`
   background: inherit;
-  border-color: #2a2a2a;
+  border-color: ${Colors.obsidian};
   border-width: 0px 0px 1px 0px;
   border-radius: 0px 0px 0px 0px;
   width: 100%;
@@ -49,7 +47,7 @@ const CustomInput = styled.input`
 
 const TextArea = styled.textarea`
   background: inherit;
-  border-color: #2a2a2a;
+  border-color: ${Colors.obsidian};
   border-width: 0px 0px 1px 0px;
   border-radius: 0px 0px 0px 0px;
   width: 100%;
@@ -62,14 +60,14 @@ const TextArea = styled.textarea`
 
 const Button = styled.button`
   padding: 0.5em 1em;
-  border: 1px solid #2a2a2a;
+  border: 1px solid ${Colors.obsidian};
   font-size: 1.3em;
 
   transition: all 0.4s ease-in-out;
 
   :hover {
-    background: #2a2a2a;
-    color: white;
+    background: ${Colors.obsidian};
+    color: ${Colors.white};
   }
 `;
 
@@ -78,8 +76,7 @@ const Required = styled.div`
 `;
 
 const Contact = () => {
-
- const submit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
   };
@@ -101,7 +98,11 @@ const Contact = () => {
         </Item>
         <Item isMobile={isMobile}>
           <Title>Nr telefonu</Title>
-          <CustomInput type="tel" autocomplete="tel" pattern="[0-9]{9}"></CustomInput>
+          <CustomInput
+            type="tel"
+            autocomplete="tel"
+            pattern="[0-9]{9}"
+          ></CustomInput>
         </Item>
         <Item isMobile={isMobile}>
           <Title>Treść *</Title>

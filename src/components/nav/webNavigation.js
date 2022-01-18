@@ -4,10 +4,11 @@ import logo1 from "../../assets/LOGO.png";
 import IG from "../../assets/ig.png";
 import FB from "../../assets/fb.png";
 import { useSelector } from "react-redux";
+import { A, FlexCenterContainer } from "../../style/common";
 
 const Web = styled.div`
   color: ${(props) => (props.show ? "#DDD" : "#555")};
-  font-family: "Montaser light";
+
   background-color: rgba(
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
@@ -29,11 +30,8 @@ const Web = styled.div`
   justify-content: space-between;
 `;
 
-const SocialMedia = styled.div`
+const SocialMedia = styled(FlexCenterContainer)`
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  display: flex;
 `;
 
 const NavTabs = styled.div`
@@ -87,14 +85,6 @@ const SocialMediaItem = styled.img`
   }
 `;
 
-const A = styled.a`
-  border: none;
-  outline: none;
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: white;
-`;
-
 const WebNavigation = () => {
   const show = useSelector((state) => state.nav).show;
 
@@ -128,10 +118,10 @@ const WebNavigation = () => {
       </SocialMedia>
       <NavTabs>
         <NavTab show={show}>
-          <A href="#content"> O mnie</A>
+          <A href="#content">O mnie</A>
         </NavTab>
         <NavTab show={show}>
-          <A href="#content"> Portfolio</A>
+          <A href="#portfolio">Portfolio</A>
         </NavTab>
         <NavLogoTab show={show}>
           <a href=".">
@@ -147,7 +137,7 @@ const WebNavigation = () => {
           <A href="#offers">Oferta</A>
         </NavTab>
         <NavTab show={show}>
-          <A href="#contact"> Kontakt </A>
+          <A href="#contact">Kontakt </A>
         </NavTab>
       </NavTabs>
       <LoginContainer />
