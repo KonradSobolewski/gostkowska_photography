@@ -5,6 +5,7 @@ import SESSION3 from "../../assets/session1/boho3.jpg";
 import SESSION4 from "../../assets/session1/boho4.jpg";
 import SESSION5 from "../../assets/session1/boho5.jpg";
 import SESSION6 from "../../assets/session1/boho6.jpg";
+import Line3 from "../../assets/lines/3.png";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import Gallery from "react-photo-gallery";
@@ -18,6 +19,16 @@ const Container = styled(FlexCenterContainer)`
 
 const Header = styled.div`
   width: 100%;
+  position: relative;
+`;
+
+const LineArt = styled.img`
+  position: absolute;
+  top: 0.5em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10em;
+  filter: invert(1);
 `;
 
 const Text = styled(FlexCenterContainer)`
@@ -48,6 +59,7 @@ const ImgContainer = styled.div`
 `;
 
 const ImgText = styled.div`
+  cursor: pointer;
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -126,6 +138,7 @@ const Portfolio = () => {
       <Header>
         <Text>Portfolio</Text>
         <SecondText>Zobacz moje prace</SecondText>
+        <LineArt src={Line3}/>
       </Header>
       <InnerContainer>
         <Gallery

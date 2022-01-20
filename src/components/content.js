@@ -3,6 +3,7 @@ import MARTIX from "../assets/martix.jpg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../style/common";
+import Line5 from "../assets/lines/5.png";
 
 const Container = styled.div`
   padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 1em 5em")};
@@ -55,6 +56,12 @@ const Text = styled.div`
   width: 60em;
 `;
 
+const LineArtHeader = styled.img`
+  width: 10em;
+  margin-left: 3em;
+  transform: translateY(2em);
+`;
+
 const Title = styled.div`
   white-space: nowrap;
   display: ${(props) => (props.isMobile ? "none" : "initial")};
@@ -81,7 +88,10 @@ function Content() {
           isMobile={isMobile}
         />
         <Text isMobile={isMobile}>
-          <Title isMobile={isMobile}>O mnie</Title>
+          <div>
+            <Title isMobile={isMobile}>O mnie</Title>
+            <LineArtHeader src={Line5} />
+          </div>
           <div>
             Cześć!
             <br />

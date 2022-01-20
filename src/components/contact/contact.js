@@ -59,6 +59,7 @@ const TextArea = styled.textarea`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   padding: 0.5em 1em;
   border: 1px solid ${Colors.obsidian};
   font-size: 1.3em;
