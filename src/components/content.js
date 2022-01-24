@@ -9,6 +9,7 @@ const Container = styled.div`
   padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 1em 5em")};
   margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 2em 4em ")};
   position: relative;
+  width: auto;
 `;
 
 const MartynaDiv = styled(FlexCenterContainer)`
@@ -44,6 +45,11 @@ const Motto = styled.div`
     font-size: 2em;
     margin: 0.3em;
   }
+
+  @media (max-width: 350px) {
+    font-size: 1.5em;
+    margin: 0;
+  }
 `;
 
 const Text = styled.div`
@@ -54,12 +60,22 @@ const Text = styled.div`
   letter-spacing: 1px;
   line-height: 1.5;
   width: 60em;
+
+  @media (max-width: 1200px) {
+    width: 50em;
+  }
+
+  @media (max-width: 1000px) {
+    width: 90%;
+    font-size: 0.7em;
+  }
 `;
 
 const LineArtHeader = styled.img`
   width: 10em;
   margin-left: 3em;
   transform: translateY(2em);
+  display: ${(props) => (props.isMobile ? "none" : "initial")};
 `;
 
 const Title = styled.div`
@@ -90,7 +106,12 @@ function Content() {
         <Text isMobile={isMobile}>
           <div>
             <Title isMobile={isMobile}>O mnie</Title>
-            <LineArtHeader src={Line5} />
+            <LineArtHeader
+              src={Line5}
+              isMobile={isMobile}
+              id="lineArt5"
+              alt={"Line art 5"}
+            />
           </div>
           <div>
             Cześć!

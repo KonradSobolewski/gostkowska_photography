@@ -14,11 +14,10 @@ import { FlexCenterContainer, Colors } from "../../style/common";
 const Container = styled(FlexCenterContainer)`
   flex-direction: column;
   background: ${Colors.obsidian};
-  padding: 3em 0;
+  padding: ${(props) => (props.isMobile ? "1em 0" : "3em 0")};
 `;
 
 const Header = styled.div`
-  width: 100%;
   position: relative;
 `;
 
@@ -29,21 +28,31 @@ const LineArt = styled.img`
   transform: translate(-50%, 0);
   width: 10em;
   filter: invert(1);
+  display: ${(props) => (props.isMobile ? "none" : "block")};
 `;
 
 const Text = styled(FlexCenterContainer)`
   color: ${Colors.white};
-  font-size: 8em;
+  font-size: ${(props) => (props.isMobile ? "6em" : "8em")};
   font-family: "Billion Miracles";
-  margin-left: 9em;
+  margin-left: ${(props) => (props.isMobile ? "0" : "9em")};
+
+  @media (max-width: 350px) {
+    font-size: 4em;
+  }
 `;
 
 const SecondText = styled(FlexCenterContainer)`
   color: ${Colors.white};
-  font-size: 4em;
+  font-size: ${(props) => (props.isMobile ? "3em" : "4em")};
   font-family: "Billion Miracles";
-  margin-left: 9em;
-  transform: translateY(-40%);
+  margin-left: ${(props) => (props.isMobile ? "0em" : "9em")};
+  transform: ${(props) =>
+    props.isMobile ? "translateY(0%)" : "translateY(-40%)"};
+
+  @media (max-width: 350px) {
+    font-size: 2em;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -68,6 +77,7 @@ const ImgText = styled.div`
   transition: all 0.3s ease-in-out;
   font-size: 3em;
 `;
+
 const Img = styled.img`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -121,7 +131,7 @@ const Portfolio = () => {
 
   const imageRenderer = useCallback((props) => {
     return (
-      <ImgContainer>
+      <ImgContainer key={props.key}>
         <Img
           src={props.photo.src}
           key={props.key}
@@ -134,16 +144,21 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <Container id="portfolio">
+    <Container id="portfolio" isMobile={isMobile}>
       <Header>
-        <Text>Portfolio</Text>
-        <SecondText>Zobacz moje prace</SecondText>
-        <LineArt src={Line3}/>
+        <Text isMobile={isMobile}>Portfolio</Text>
+        <SecondText isMobile={isMobile}>Zobacz moje prace</SecondText>
+        <LineArt
+          src={Line3}
+          isMobile={isMobile}
+          id="line art 3"
+          alt={"Line art 3"}
+        />
       </Header>
       <InnerContainer>
         <Gallery
           photos={photos}
-          targetRowHeight={400}
+          targetRowHeight={isMobile ? 200 : 400}
           renderImage={imageRenderer}
           margin={0}
         />

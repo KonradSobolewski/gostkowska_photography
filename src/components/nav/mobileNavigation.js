@@ -14,6 +14,7 @@ const Background = styled(FlexCenterContainer)`
 const Mobile = styled(FlexCenterContainer)`
   flex-direction: column;
   font-size: 20px;
+  width: 100vw;
 `;
 
 const FirstRow = styled(Background)`
