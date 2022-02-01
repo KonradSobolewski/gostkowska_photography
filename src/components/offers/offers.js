@@ -210,7 +210,12 @@ const Offers = () => {
       <Header>
         <Text isMobile={isMobile}>Oferta</Text>
         <SecondText isMobile={isMobile}>Co mogę dla Ciebie zrobić</SecondText>
-        <LineArtHeader src={Line6} id="lineArt6" alt={"Line art 6"} />
+        <LineArtHeader
+          src={Line6}
+          id="lineArt6"
+          alt={"Line art 6"}
+          loading="lazy"
+        />
       </Header>
       <OffersDiv>{offers}</OffersDiv>
     </Container>
@@ -225,9 +230,14 @@ const Offer = (props) => {
       <Box direction={direction ? 1 : 0}>
         <Title>{title}</Title>
         <Description>{decription}</Description>
-        <LineArt src={lineArt} direction={direction ? 1 : 0} alt={"Line art"} />
+        <LineArt
+          src={lineArt}
+          direction={direction ? 1 : 0}
+          alt={"Line art"}
+          loading="lazy"
+        />
       </Box>
-      <Photo src={photo} />
+      <Photo src={photo} loading="lazy" />
     </OfferDiv>
   );
 };

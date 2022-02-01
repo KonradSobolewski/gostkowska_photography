@@ -102,6 +102,7 @@ function Content() {
           id="martyna"
           alt={"Martyna image"}
           isMobile={isMobile}
+          loading="lazy"
         />
         <Text isMobile={isMobile}>
           <div>
@@ -111,6 +112,7 @@ function Content() {
               isMobile={isMobile}
               id="lineArt5"
               alt={"Line art 5"}
+              loading="lazy"
             />
           </div>
           <div>

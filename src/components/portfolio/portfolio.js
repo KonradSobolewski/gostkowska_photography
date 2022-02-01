@@ -3,13 +3,14 @@ import SESSION1 from "../../assets/session1/boho1.jpg";
 import SESSION2 from "../../assets/session1/boho2.jpg";
 import SESSION3 from "../../assets/session1/boho3.jpg";
 import SESSION4 from "../../assets/session1/boho4.jpg";
-import SESSION5 from "../../assets/session1/boho5.jpg";
+import SESSION5 from "../../assets/session1/boho9.jpg";
 import SESSION6 from "../../assets/session1/boho6.jpg";
 import Line3 from "../../assets/lines/3.png";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import Gallery from "react-photo-gallery";
 import { FlexCenterContainer, Colors } from "../../style/common";
+import { Link } from "react-router-dom";
 
 const Container = styled(FlexCenterContainer)`
   flex-direction: column;
@@ -76,6 +77,7 @@ const ImgText = styled.div`
   transform: translate(-50%, -50%);
   transition: all 0.3s ease-in-out;
   font-size: 3em;
+  color: white;
 `;
 
 const Img = styled.img`
@@ -92,36 +94,42 @@ const Img = styled.img`
 const Portfolio = () => {
   const photos = [
     {
+      id: 1,
       src: SESSION1,
       width: 3,
       height: 2,
       text: "Photo1",
     },
     {
+      id: 2,
       src: SESSION2,
       width: 2,
       height: 3,
       text: "Photo2",
     },
     {
+      id: 3,
       src: SESSION3,
       width: 2,
       height: 3,
       text: "Photo3",
     },
     {
+      id: 4,
       src: SESSION4,
       width: 3,
       height: 2,
       text: "Photo4",
     },
     {
+      id: 5,
       src: SESSION5,
       width: 3,
       height: 2,
       text: "Photo5",
     },
     {
+      id: 6,
       src: SESSION6,
       width: 2,
       height: 3,
@@ -132,13 +140,16 @@ const Portfolio = () => {
   const imageRenderer = useCallback((props) => {
     return (
       <ImgContainer key={props.key}>
-        <Img
-          src={props.photo.src}
-          key={props.key}
-          alt={props.title}
-          {...props.photo}
-        />
-        <ImgText>{props.photo.text}</ImgText>
+        <Link to={`/session/${props.photo.id}`} key={props.photo.id} style={{ textDecoration: 'none' }}>
+          <Img
+            src={props.photo.src}
+            key={props.key}
+            alt={props.title}
+            loading="lazy"
+            {...props.photo}
+          />
+          <ImgText>{props.photo.text}</ImgText>
+        </Link>
       </ImgContainer>
     );
   }, []);
@@ -153,6 +164,7 @@ const Portfolio = () => {
           isMobile={isMobile}
           id="line art 3"
           alt={"Line art 3"}
+          loading="lazy"
         />
       </Header>
       <InnerContainer>

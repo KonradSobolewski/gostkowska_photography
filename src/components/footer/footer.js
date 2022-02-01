@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import IG from "../../assets/ig.png";
 import FB from "../../assets/fb.png";
-import { FlexCenterContainer, Colors } from "../../style/common";
+import { FlexCenterContainer, Colors, A } from "../../style/common";
 
 const FooterStyle = styled(FlexCenterContainer)`
   font-size: 1m;
@@ -45,7 +45,12 @@ const Upper = styled(FlexCenterContainer)`
   background-color: #2a2a2a;
 `;
 
-const SocialMedia = styled(FlexCenterContainer)``;
+const SocialMedia = styled(FlexCenterContainer)`
+  padding: 0 5em;
+  @media only screen and (max-width: 1000px) {
+    padding: 0;
+  }
+`;
 
 const SocialMediaItem = styled.img`
   padding: 1em 1em 0 1em;
@@ -56,49 +61,64 @@ const SocialMediaItem = styled.img`
 `;
 
 const Contact = styled.div`
+  display: inherit;
   padding: 1em;
   color: ${Colors.white};
   text-align: left;
   line-height: 2em;
+
+  @media only screen and (max-width: 1000px) {
+    display: block;
+  }
 `;
 
 const Instagram = styled.div`
-  padding: 1em;
+  // padding: 1em;
   color: ${Colors.white};
 `;
 
 const Footer = () => {
   return (
     <FooterStyle>
+      <Instagram></Instagram>
       <Upper>
         <Contact>
-          gostkowskamartyna.info@gmail.com
-          <br />
-          tel. 782-884-474
+          <div>
+            gostkowskamartyna.info@gmail.com
+            <br />
+            tel. 782-884-474
+          </div>
           <SocialMedia>
-            <a
+            <A
               href="https://www.instagram.com/gostkowskaphotography/"
               target="_blank"
               rel="noreferrer"
             >
               <SocialMediaItem src={IG} id="instagram" alt={"Instagram logo"} />
-            </a>
-            <a
+            </A>
+            <A
               href="https://www.facebook.com/gostkowska.martyna"
               target="_blank"
               rel="noreferrer"
             >
               <SocialMediaItem src={FB} id="facebook" alt={"Facebook logo"} />
-            </a>
+            </A>
           </SocialMedia>
         </Contact>
-        <Instagram></Instagram>
       </Upper>
       <Sites>
-        <Site>O mnie</Site>
-        <Site>Portfolio</Site>
-        <Site>Oferta</Site>
-        <Site>Kontakt</Site>
+        <A href="/#content">
+          <Site> O mnie</Site>
+        </A>
+        <A href="/#portfolio">
+          <Site>Portfolio</Site>
+        </A>
+        <A href="/#offers">
+          <Site>Oferta</Site>
+        </A>
+        <A href="/#contact">
+          <Site>Kontakt</Site>
+        </A>
       </Sites>
       <Copy>
         Gostkowska Photography &copy; Warszawa 2022. All rights reserved.
