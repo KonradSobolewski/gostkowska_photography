@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import scrollDown from "../../assets/scroll_down";
+import scrollDown from "../../assets/lottie/scroll_down";
 import styled from "styled-components";
 
 const defaultOptions = {

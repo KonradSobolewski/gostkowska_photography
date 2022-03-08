@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../../style/common";
+import { useSelector, useDispatch } from "react-redux";
+import { FormState } from "../../redux/reducers/contactReducer";
+import * as contactActions from "../../redux/actions/contactActions";
+import MessageResult from "./messageResult";
 
 const Container = styled(FlexCenterContainer)`
   flex-direction: column;
@@ -77,9 +81,44 @@ const Required = styled.div`
 `;
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(true);
+  const sendingState = useSelector((state) => state.contact);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (sendingState.sendingResult === FormState.SUCCESS) {
+      setName("");
+      setMessage("");
+      setPhoneNumber("");
+      setEmail("");
+    }
+  }, [sendingState.sendingResult]);
+
   const submit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
+    const body = {
+      name: name,
+      message: message,
+      email: email,
+      phoneNumber: phoneNumber,
+    };
+    if (
+      !(
+        (name.trim().length ||
+          email.trim().length ||
+          phoneNumber.trim().length) === 0
+      )
+    ) {
+      console.log(name);
+      console.log(message);
+      console.log(email);
+      console.log(phoneNumber);
+      dispatch(contactActions.sendMail(body));
+    }
   };
 
   return (
@@ -91,11 +130,20 @@ const Contact = () => {
       <Form onSubmit={submit}>
         <Item isMobile={isMobile}>
           <Title>Imię i Nazwisko *</Title>
-          <CustomInput required></CustomInput>
+          <CustomInput
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></CustomInput>
         </Item>
         <Item isMobile={isMobile}>
           <Title>Adres email *</Title>
-          <CustomInput type="email" required></CustomInput>
+          <CustomInput
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></CustomInput>
         </Item>
         <Item isMobile={isMobile}>
           <Title>Nr telefonu</Title>
@@ -103,13 +151,23 @@ const Contact = () => {
             type="tel"
             autocomplete="tel"
             pattern="[0-9]{9}"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           ></CustomInput>
         </Item>
         <Item isMobile={isMobile}>
           <Title>Treść *</Title>
-          <TextArea rows="4" required></TextArea>
+          <TextArea
+            rows="4"
+            required
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></TextArea>
         </Item>
-        <Button type="submit">Wyślij</Button>
+        <div>
+          <MessageResult result={sendingState.sendingResult} />
+          <Button type="submit">Wyślij</Button>
+        </div>
         <Required>* pola wymagane</Required>
       </Form>
     </Container>

@@ -8,10 +8,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import navigationReducer from "./redux/reducers/navigationReducer";
+import contactReducer from "./redux/reducers/contactReducer"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const rootReducer = combineReducers({
   nav: navigationReducer,
+  contact: contactReducer
 });
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
