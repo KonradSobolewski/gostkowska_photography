@@ -3,16 +3,15 @@ import MARTIX from "../assets/martix.jpg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../style/common";
-import Line5 from "../assets/lines/5.png";
 
 const Container = styled.div`
-  padding: ${(props) => (props.isMobile ? "1em" : "0em 5em 1em 5em")};
-  margin: ${(props) => (props.isMobile ? "1em 0 0 0" : "0em 5em 2em 4em ")};
   position: relative;
   width: auto;
 `;
 
 const MartynaDiv = styled(FlexCenterContainer)`
+  padding: ${(props) => (props.isMobile ? "0 1e" : "0em 5em")};
+  margin: ${(props) => (props.isMobile ? "0" : "4em 5em 0em 4em ")};
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
 `;
 
@@ -22,34 +21,7 @@ const Img = styled.img`
   transform: ${(props) =>
     props.isMobile ? " translateY(15%)" : " translateX(15%)"};
   filter: drop-shadow(3px 5px 7px #444);
-`;
-
-const Motto = styled.div`
-  text-align: center;
-  font-size: 5em;
-  margin: 0.8em 0;
-  font-family: "Billion Miracles";
-  white-space: nowrap;
-
-  @media (max-width: 1200px) {
-    font-size: 4em;
-    margin: 0.7em;
-  }
-
-  @media (max-width: 1000px) {
-    font-size: 3em;
-    margin: 0.6em;
-  }
-
-  @media (max-width: 700px) {
-    font-size: 2em;
-    margin: 0.3em;
-  }
-
-  @media (max-width: 350px) {
-    font-size: 1.5em;
-    margin: 0;
-  }
+  z-index: 1;
 `;
 
 const Text = styled.div`
@@ -71,13 +43,6 @@ const Text = styled.div`
   }
 `;
 
-const LineArtHeader = styled.img`
-  width: 10em;
-  margin-left: 3em;
-  transform: translateY(2em);
-  display: ${(props) => (props.isMobile ? "none" : "initial")};
-`;
-
 const Title = styled.div`
   white-space: nowrap;
   display: ${(props) => (props.isMobile ? "none" : "initial")};
@@ -88,14 +53,39 @@ const Title = styled.div`
 `;
 
 const Singature = styled.div`
+  margin-top: 0.5em;
   font-size: 3em;
+  color: ${(props) => (props.isMobile ? Colors.black : "white")};
   font-family: "Billion Miracles";
+  z-index: 1;
+`;
+
+const Box = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 14em;
+  z-index: -3;
+  background: ${Colors.obsidian};
+  display: ${(props) => (props.isMobile ? "none" : "block")};
+
+  @media (max-width: 2000px) {
+    height: 12.5em;
+  }
+
+  @media (max-width: 1900px) {
+    height: 11em;
+  }
+
+  @media (max-width: 1700px) {
+    height: 10em;
+  }
 `;
 
 function Content() {
   return (
     <Container isMobile={isMobile} id="content">
-      <Motto>Unique moments closed in the photos</Motto>
       <MartynaDiv isMobile={isMobile}>
         <Img
           src={MARTIX}
@@ -107,13 +97,6 @@ function Content() {
         <Text isMobile={isMobile}>
           <div>
             <Title isMobile={isMobile}>O mnie</Title>
-            <LineArtHeader
-              src={Line5}
-              isMobile={isMobile}
-              id="lineArt5"
-              alt={"Line art 5"}
-              loading="lazy"
-            />
           </div>
           <div>
             Cześć!
@@ -140,9 +123,10 @@ function Content() {
             wiadomość. <br />
             Jestem pewna, że możemy razem stworzyć coś pięknego!
           </div>
-          <Singature>Martyna</Singature>
+          <Singature isMobile={isMobile}>Martyna</Singature>
         </Text>
       </MartynaDiv>
+      <Box isMobile={isMobile}></Box>
     </Container>
   );
 }

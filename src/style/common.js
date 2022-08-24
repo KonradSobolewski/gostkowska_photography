@@ -19,5 +19,7 @@ export const Colors = {
     "white": "white",
     "cream": "#eee",
     "black": "black",
-    "lightBlack": "#111"
+    "lightBlack": "#111",
+    "button": "#806650",
+    "buttonLight": "#B38E70"
 };

@@ -169,6 +169,21 @@ const Img3 = styled(Img)`
   animation: fadeIn3 15s infinite;
 `;
 
+const Motto = styled.div`
+  text-align: center;
+  font-size: ${(props) => (props.isMobile ? "9vw" : "5vw")};;
+  position:absolute;
+  top: 40%;
+  left: 0; 
+  width: 100%; 
+  color: white;
+  margin: 0.8em 0;
+  font-family: "Billion Miracles";
+  white-space: nowrap;
+  filter: drop-shadow(3px 5px 7px #333);
+  cursor: default;
+`;
+
 const NavBar = () => {
   const dispatch = useDispatch();
 
@@ -196,6 +211,7 @@ const NavBar = () => {
         <Img1 src={TLO1} id="bg1" alt={"First background image"} />
         <Img2 src={TLO2} id="bg2" alt={"Second background image"} />
         <Img3 src={TLO3} id="bg3" alt={"Third background image"} />
+        <Motto isMobile={isMobile}>Unique moments closed in the photos</Motto>
         <ScrollDown />
       </Bg>
     </>

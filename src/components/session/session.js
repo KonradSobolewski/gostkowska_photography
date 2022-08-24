@@ -6,7 +6,6 @@ import Footer from "../footer/footer";
 import { StandardSection } from "./standardSection";
 import { WidtherSection } from "./widtherSection";
 
-
 const InnnerContainer = styled(FlexCenterContainer)`
   flex-direction: column;
 `;
@@ -41,7 +40,7 @@ const getImagesSection = (params) => {
       images = importAll(
         require.context("../../assets/session2", false, /\.(png|jpe?g|svg)$/)
       );
-      return section(images);
+      return section(images, [3], false);
   }
 };
 

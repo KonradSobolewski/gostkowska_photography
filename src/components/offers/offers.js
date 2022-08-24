@@ -5,7 +5,7 @@ import Line2 from "../../assets/lines/2.png";
 import Line4 from "../../assets/lines/4.png";
 import Line1 from "../../assets/lines/1.png";
 import Line6 from "../../assets/lines/6.png";
-import { FlexCenterContainer, Colors } from "../../style/common";
+import { FlexCenterContainer, Colors, A } from "../../style/common";
 import { isMobile } from "react-device-detect";
 
 const Container = styled.div`
@@ -58,7 +58,6 @@ const SecondText = styled(FlexCenterContainer)`
 `;
 
 const OfferDiv = styled(FlexCenterContainer)`
-  cursor: pointer;
   flex-direction: ${(props) => (props.direction ? "row" : "row-reverse")};
   transform: translateY(-20%);
 
@@ -80,7 +79,7 @@ const Box = styled.div`
   position: relative;
 
   width: 50em;
-  transform: translateY(30%);
+  transform: translateY(20%);
 
   @media only screen and (max-width: 1300px) {
     width: 40em;
@@ -162,6 +161,17 @@ const Description = styled.div`
   text-align: inherit;
 `;
 
+const More = styled.div`
+  cursor: pointer;
+  align-self: ${(props) => (props.direction ? "flex-end" : "flex-start")};
+  color: ${Colors.button};
+  transition: all 0.3s ease-in-out;
+
+  :hover {
+    color: ${Colors.buttonLight};
+  }
+`;
+
 const Photo = styled.img`
   width: 15em;
 
@@ -227,16 +237,19 @@ const Offer = (props) => {
 
   return (
     <OfferDiv direction={direction ? 1 : 0}>
-      <Box direction={direction ? 1 : 0}>
-        <Title>{title}</Title>
-        <Description>{decription}</Description>
-        <LineArt
-          src={lineArt}
-          direction={direction ? 1 : 0}
-          alt={"Line art"}
-          loading="lazy"
-        />
-      </Box>
+      <A href="#">
+        <Box direction={direction ? 1 : 0}>
+          <Title>{title}</Title>
+          <Description>{decription}</Description>
+          <LineArt
+            src={lineArt}
+            direction={direction ? 1 : 0}
+            alt={"Line art"}
+            loading="lazy"
+          />
+          <More direction={direction ? 1 : 0}>Pokaż więcej...</More>
+        </Box>
+      </A>
       <Photo src={photo} loading="lazy" />
     </OfferDiv>
   );
