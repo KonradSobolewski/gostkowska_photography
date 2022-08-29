@@ -1,172 +1,71 @@
 import React from "react";
 import styled from "styled-components";
 import BOHO2 from "../../assets/session1/boho2.jpg";
-import Line2 from "../../assets/lines/2.png";
-import Line4 from "../../assets/lines/4.png";
-import Line1 from "../../assets/lines/1.png";
-import Line6 from "../../assets/lines/6.png";
+import BOHO1 from "../../assets/session1/boho1.jpg";
 import { FlexCenterContainer, Colors, A } from "../../style/common";
 import { isMobile } from "react-device-detect";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  width: auto;
-`;
-
-const OffersDiv = styled(FlexCenterContainer)`
-  flex-direction: column;
-  background: ${Colors.obsidian};
-  padding: 1em;
+  background-image: url(${BOHO1});
+  background-size: cover;
+  z-index: -2;
 `;
 
 const Header = styled.div`
-  padding: 1em 0;
-  background: ${Colors.cream};
+  padding: 2em 0;
+  background: ${Colors.obsidian};
   width: auto;
   position: relative;
-  white-space: nowrap;
 `;
 
 const Text = styled(FlexCenterContainer)`
-  color: ${Colors.lightBlack};
-  font-size: ${(props) => (props.isMobile ? "6em" : "8em")};
-  font-family: "Billion Miracles";
-  margin-right: ${(props) => (props.isMobile ? "0" : "9em")};
-
+  color: ${Colors.white};
+  font-size: ${(props) => (props.isMobile ? "2em" : "2em")};
+  font-family: "Montaser extra-light";
   @media (max-width: 350px) {
     font-size: 4em;
   }
 `;
 
 const SecondText = styled(FlexCenterContainer)`
-  color: ${Colors.lightBlack};
-  font-size: ${(props) => (props.isMobile ? "3em" : "4em")};
+  color: ${Colors.white};
+  font-size: ${(props) => (props.isMobile ? "3em" : "7em")};
   font-family: "Billion Miracles";
-  margin-right: ${(props) => (props.isMobile ? "0" : "9em")};
-  transform: translateY(-40%);
-
-  @media only screen and (max-width: 1600px) {
-    transform: translateY(-20%);
-  }
-
-  @media only screen and (max-width: 1200px) {
-    transform: translateY(0%);
-  }
 
   @media (max-width: 350px) {
     font-size: 2em;
   }
 `;
 
+const OffersDiv = styled(FlexCenterContainer)`
+// position: inherit;
+  flex-direction: row;
+  padding: 5em;
+  color: ${Colors.white};
+`;
+
 const OfferDiv = styled(FlexCenterContainer)`
-  flex-direction: ${(props) => (props.direction ? "row" : "row-reverse")};
-  transform: translateY(-20%);
-
-  @media only screen and (max-width: 1200px) {
-    transform: translateY(0%);
-  }
-`;
-
-const Box = styled.div`
-  background: ${Colors.cream};
-  color: ${Colors.black};
-  padding: 2em;
-  margin: 1em 0;
-  display: flex;
-  justify-content: ${(props) => (props.direction ? "start" : "end")};
-  align-items: ${(props) => (props.direction ? "start" : "end")};
-  text-align: ${(props) => (props.direction ? "left" : "right")};
   flex-direction: column;
-  position: relative;
-
-  width: 50em;
-  transform: translateY(20%);
-
-  @media only screen and (max-width: 1300px) {
-    width: 40em;
-    transform: translateY(0%);
-  }
-
-  @media only screen and (max-width: 1000px) {
-    width: 30em;
-    transform: translateY(0%);
-  }
-
-  @media only screen and (max-width: 800px) {
-    width: 90%;
-    transform: translateY(0%);
-  }
-
-  @media only screen and (max-width: 350px) {
-    font-size: 0.7em;
-  }
-`;
-
-const LineArt = styled.img`
-  position: absolute;
-  top: 0.5em;
-  left: 15%;
-  transform: translate(-15%, 0);
-  left: ${(props) => (props.direction ? "45em" : "4em")};
-  width: 6em;
-
-  @media only screen and (max-width: 1500px) {
-    left: ${(props) => (props.direction ? "80%" : "4em")};
-    width: 4em;
-  }
-
-  @media only screen and (max-width: 1000px) {
-    left: ${(props) => (props.direction ? "80%" : "4em")};
-  }
-
-  @media only screen and (max-width: 800px) {
-    display: none;
-  }
-`;
-
-const LineArtHeader = styled.img`
-  position: absolute;
-  top: 0.5em;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 10em;
-
-  @media only screen and (max-width: 1500px) {
-    width: 8em;
-  }
-
-  @media only screen and (max-width: 1200px) {
-    width: 6em;
-    left: 70%;
-    transform: translate(-70%, 0);
-  }
-
-  @media only screen and (max-width: 800px) {
-    display: none;
-  }
+  background: ${Colors.obsidian};
+  margin: 2em;
 `;
 
 const Title = styled.div`
   font-family: "Billion Miracles";
   white-space: nowrap;
-  font-size: 5em;
-  text-align: inherit;
-  transform: translateY(-15%);
-
-  @media only screen and (max-width: 1000px) {
-    font-size: 3em;
-  }
-`;
-
-const Description = styled.div`
+  font-size: 3em;
   text-align: inherit;
 `;
 
-const More = styled.div`
+const More = styled(FlexCenterContainer)`
+  pointer-events: auto;
   cursor: pointer;
-  align-self: ${(props) => (props.direction ? "flex-end" : "flex-start")};
-  color: ${Colors.button};
+  color: ${Colors.black};
+  background: ${Colors.cream};
   transition: all 0.3s ease-in-out;
-
+  padding: 1em;
+  margin: 1em;
   :hover {
     color: ${Colors.buttonLight};
   }
@@ -174,58 +73,42 @@ const More = styled.div`
 
 const Photo = styled.img`
   width: 15em;
-
-  @media only screen and (max-width: 1200px) {
-    width: 10em;
-  }
-
-  @media only screen and (max-width: 600px) {
-    display: none;
-  }
+  margin: 1em;
 `;
 
 const Offers = () => {
   const offers = [
     {
-      direction: true,
+      id: 1,
       title: "Sesja indywidualna",
-      decription:
-        "Tutaj cos bedzie asdasdadas asdsad asdsa dsadsadsadsa aadadasdsa daasdasdasdasdasdasdasdas " +
-        " adasd asdasdadadas  adasdasd  sadsad adsa dasdasd asd asdas asdassadsad aadsad asda asdas dasdasdasd asd asd as",
       photo: BOHO2,
-      lineArt: Line4,
+      link: "/indywidualna"
     },
     {
-      direction: false,
-      title: "Sesja miłosna",
-      decription:
-        "Tutaj cos bedzie asdasdadas asdsad asdsa dsadsadsadsa aadadasdsa daasdasdasdasdasdasdasdas " +
-        " adasd asdasdadadas  adasdasd  sadsad adsa dasdasd asd asdas asdassadsad aadsad asda asdas dasdasdasd asd asd as",
+      id: 2,
+      title: "Sesja narzeczeńska",
       photo: BOHO2,
-      lineArt: Line1,
+      link: "/narzeczenska"
     },
     {
-      direction: true,
-      title: "Sesja ślubne",
-      decription:
-        "Tutaj cos bedzie asdasdadas asdsad asdsa dsadsadsadsa aadadasdsa daasdasdasdasdasdasdasdas " +
-        " adasd asdasdadadas  adasdasd  sadsad adsa dasdasd asd asdas asdassadsad aadsad asda asdas dasdasdasd asd asd as",
+      id: 3,
+      title: "Sesja ślubna",
       photo: BOHO2,
-      lineArt: Line2,
+      link: "/slubna"
+    },
+    {
+      id: 4,
+      title: "Reportaż",
+      photo: BOHO2,
+      link: "/reportaz"
     },
   ].map((it) => <Offer key={it.title} params={it} />);
 
   return (
     <Container id="offers">
       <Header>
-        <Text isMobile={isMobile}>Oferta</Text>
-        <SecondText isMobile={isMobile}>Co mogę dla Ciebie zrobić</SecondText>
-        <LineArtHeader
-          src={Line6}
-          id="lineArt6"
-          alt={"Line art 6"}
-          loading="lazy"
-        />
+        <Text isMobile={isMobile}>poznaj</Text>
+        <SecondText isMobile={isMobile}>ofertę</SecondText>
       </Header>
       <OffersDiv>{offers}</OffersDiv>
     </Container>
@@ -233,24 +116,19 @@ const Offers = () => {
 };
 
 const Offer = (props) => {
-  const { direction, title, decription, photo, lineArt } = props.params;
+  const { title, photo, link } = props.params;
 
   return (
-    <OfferDiv direction={direction ? 1 : 0}>
-      <A href="#">
-        <Box direction={direction ? 1 : 0}>
-          <Title>{title}</Title>
-          <Description>{decription}</Description>
-          <LineArt
-            src={lineArt}
-            direction={direction ? 1 : 0}
-            alt={"Line art"}
-            loading="lazy"
-          />
-          <More direction={direction ? 1 : 0}>Pokaż więcej...</More>
-        </Box>
-      </A>
+    <OfferDiv>
       <Photo src={photo} loading="lazy" />
+      <Title>{title}</Title>
+      <Link
+          to={link}
+          key={props.id}
+          style={{ textDecoration: "none" }}
+        >
+        <More>Poznaj ofertę</More>
+      </Link>
     </OfferDiv>
   );
 };

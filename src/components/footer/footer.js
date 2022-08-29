@@ -42,7 +42,7 @@ const Upper = styled(FlexCenterContainer)`
   width: -webkit-fill-available;
   padding: 1em;
   color: ${Colors.white};
-  background-color: #2a2a2a;
+  background-color: ${Colors.obsidian};
 `;
 
 const SocialMedia = styled(FlexCenterContainer)`

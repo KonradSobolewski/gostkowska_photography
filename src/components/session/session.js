@@ -1,13 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { FlexCenterContainer } from "../../style/common";
+import { FlexCenterContainer, Colors } from "../../style/common";
 import Footer from "../footer/footer";
 import { StandardSection } from "./standardSection";
 import { WidtherSection } from "./widtherSection";
 
 const InnnerContainer = styled(FlexCenterContainer)`
   flex-direction: column;
+  background: ${Colors.obsidian};
 `;
 
 function importAll(r) {
@@ -25,7 +26,7 @@ const getImagesSection = (params) => {
       images = importAll(
         require.context("../../assets/session1", false, /\.(png|jpe?g|svg)$/)
       );
-      return section(images, [3, 3, 1], true);
+      return section(images, [3, 3, 1], false);
     case "2":
       images = importAll(
         require.context("../../assets/session2", false, /\.(png|jpe?g|svg)$/)

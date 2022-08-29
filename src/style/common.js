@@ -6,6 +6,7 @@ export const A = styled.a`
   text-decoration: none;
   color: inherit;
   -webkit-tap-highlight-color: white;
+  pointer-events: auto;
 `;
 
 export const FlexCenterContainer = styled.div`
@@ -17,7 +18,7 @@ export const FlexCenterContainer = styled.div`
 export const Colors = {
     "obsidian": "#2d2d2d",
     "white": "white",
-    "cream": "#eee",
+    "cream": "#dfdbd3",
     "black": "black",
     "lightBlack": "#111",
     "button": "#806650",

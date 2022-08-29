@@ -154,13 +154,16 @@ const MobileNavigation = () => {
           <A href="#content">O mnie</A>
         </Tab>
         <Tab show={show}>
+          <A href="#history">Historie</A>
+        </Tab>
+        <Tab show={show}>
           <A href="#portfolio">Portfolio</A>
         </Tab>
         <Tab show={show}>
           <A href="#offers">Oferta</A>
         </Tab>
         <Tab show={show}>
-          <A href="#contact">Kontakt </A>
+          <A href="#contact">Kontakt</A>
         </Tab>
 
         <SocialMedia>

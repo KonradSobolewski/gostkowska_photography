@@ -5,6 +5,7 @@ import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
 import Offers from "./components/offers/offers";
 import Portfolio from "./components/portfolio/portfolio";
+import SwiperGallery from "./components/portfolio/swiperGallery";
 import Cookies from "./components/cookies/cookies";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <NavBar />
       <Content />
       <Portfolio />
+      <SwiperGallery />
       <Offers />
       <Contact />
       <Footer />

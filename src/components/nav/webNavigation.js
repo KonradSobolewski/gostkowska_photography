@@ -29,8 +29,8 @@ const Web = styled(FlexCenterContainer)`
 `;
 
 const SocialMedia = styled(FlexCenterContainer)`
-  left: 15%;
-  transform: translate(-15%, 0);
+  left: 10%;
+  transform: translate(-10%, 0);
   position: absolute;
 `;
 
@@ -40,7 +40,10 @@ const NavTabs = styled(FlexCenterContainer)`
   position: absolute;
 `;
 
-const LoginContainer = styled(FlexCenterContainer)``;
+const ContactContainer = styled(FlexCenterContainer)`
+right: 5%;
+transform: translate(5%, 0);
+position: absolute;`;
 
 const Tab = styled.li`
   position: relative;
@@ -120,7 +123,7 @@ const WebNavigation = () => {
           <A href="#content">O mnie</A>
         </NavTab>
         <NavTab show={show}>
-          <A href="#portfolio">Portfolio</A>
+          <A href="#history">Historie</A>
         </NavTab>
         <NavLogoTab show={show}>
           <a href=".">
@@ -133,13 +136,17 @@ const WebNavigation = () => {
           </a>
         </NavLogoTab>
         <NavTab show={show}>
-          <A href="#offers">Oferta</A>
+          <A href="#portfolio">Portfolio</A>
         </NavTab>
+        <NavTab show={show}>
+          <A href="#offers">Oferta </A>
+        </NavTab>
+      </NavTabs>
+      <ContactContainer>
         <NavTab show={show}>
           <A href="#contact">Kontakt </A>
         </NavTab>
-      </NavTabs>
-      <LoginContainer />
+      </ContactContainer>
     </Web>
   );
 };

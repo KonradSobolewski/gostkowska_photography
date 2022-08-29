@@ -7,31 +7,33 @@ import { FlexCenterContainer, Colors } from "../style/common";
 const Container = styled.div`
   position: relative;
   width: auto;
+  background: ${Colors.cream};
 `;
 
 const MartynaDiv = styled(FlexCenterContainer)`
-  padding: ${(props) => (props.isMobile ? "0 1e" : "0em 5em")};
-  margin: ${(props) => (props.isMobile ? "0" : "4em 5em 0em 4em ")};
+  padding: ${(props) => (props.isMobile ? "0 1e" : "4em 5em 0em 5em")};
+  margin: ${(props) => (props.isMobile ? "0" : "0em 5em 0em 4em ")};
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
 `;
 
 const Img = styled.img`
   padding: ${(props) => (props.isMobile ? "1em" : " 0 0 0 5em")};
-  width: ${(props) => (props.isMobile ? "16em" : "30em")};
+  width: ${(props) => (props.isMobile ? "16em" : "23em")};
   transform: ${(props) =>
     props.isMobile ? " translateY(15%)" : " translateX(15%)"};
   filter: drop-shadow(3px 5px 7px #444);
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Text = styled.div`
   padding: ${(props) =>
-    props.isMobile ? "7em 2em 2em 2em" : "5em 5em 5em 10em"};
+    props.isMobile ? "7em 2em 2em 2em" : "2em 5em 5em 10em"};
   font-size: ${(props) => (props.isMobile ? "0.8em" : "1em")};
   color: ${Colors.black};
   letter-spacing: 1px;
   line-height: 1.5;
   width: 60em;
+  z-index: 2;
 
   @media (max-width: 1200px) {
     width: 50em;
@@ -50,6 +52,7 @@ const Title = styled.div`
   font-family: "Billion Miracles";
   font-size: 8em;
   padding-bottom: 0.5em;
+  z-index: 2;
 `;
 
 const Singature = styled.div`
@@ -57,7 +60,7 @@ const Singature = styled.div`
   font-size: 3em;
   color: ${(props) => (props.isMobile ? Colors.black : "white")};
   font-family: "Billion Miracles";
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Box = styled.div`
@@ -65,13 +68,13 @@ const Box = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 14em;
-  z-index: -3;
+  height: 10em;
+  z-index: 1;
   background: ${Colors.obsidian};
   display: ${(props) => (props.isMobile ? "none" : "block")};
 
   @media (max-width: 2000px) {
-    height: 12.5em;
+    height: 10em;
   }
 
   @media (max-width: 1900px) {
@@ -96,11 +99,7 @@ function Content() {
         />
         <Text isMobile={isMobile}>
           <div>
-            <Title isMobile={isMobile}>O mnie</Title>
-          </div>
-          <div>
-            Cześć!
-            <br />
+            <Title isMobile={isMobile}>Cześć!</Title>
             <br />
           </div>
           <div>
