@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import BOHO2 from "../../assets/session1/boho2.jpg";
-import BOHO1 from "../../assets/session1/boho1.jpg";
+import Indywidualna from "../../assets/offer/Indywidualne.jpg";
+import Narzeczenskie from "../../assets/offer/Narzeczenskie.jpg";
+import Reportaze from "../../assets/offer/Reportaze.jpg";
+import Slubne from "../../assets/offer/Slubne.jpg";
+import BG from "../../assets/offerbg.jpg";
 import { FlexCenterContainer, Colors, A } from "../../style/common";
 import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  background-image: url(${BOHO1});
+  background-image: url(${BG});
   background-size: cover;
   z-index: -2;
 `;
@@ -39,9 +42,8 @@ const SecondText = styled(FlexCenterContainer)`
 `;
 
 const OffersDiv = styled(FlexCenterContainer)`
-// position: inherit;
-  flex-direction: row;
-  padding: 5em;
+  flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
+  padding:  ${(props) => (props.isMobile ? "2em" : "5em")};
   color: ${Colors.white};
 `;
 
@@ -81,26 +83,26 @@ const Offers = () => {
     {
       id: 1,
       title: "Sesja indywidualna",
-      photo: BOHO2,
-      link: "/indywidualna"
+      photo: Indywidualna,
+      link: "/indywidualna",
     },
     {
       id: 2,
       title: "Sesja narzeczeńska",
-      photo: BOHO2,
-      link: "/narzeczenska"
+      photo: Narzeczenskie,
+      link: "/narzeczenska",
     },
     {
       id: 3,
       title: "Sesja ślubna",
-      photo: BOHO2,
-      link: "/slubna"
+      photo: Slubne,
+      link: "/slubna",
     },
     {
       id: 4,
       title: "Reportaż",
-      photo: BOHO2,
-      link: "/reportaz"
+      photo: Reportaze,
+      link: "/reportaz",
     },
   ].map((it) => <Offer key={it.title} params={it} />);
 
@@ -110,7 +112,7 @@ const Offers = () => {
         <Text isMobile={isMobile}>poznaj</Text>
         <SecondText isMobile={isMobile}>ofertę</SecondText>
       </Header>
-      <OffersDiv>{offers}</OffersDiv>
+      <OffersDiv isMobile={isMobile}>{offers}</OffersDiv>
     </Container>
   );
 };
@@ -122,11 +124,7 @@ const Offer = (props) => {
     <OfferDiv>
       <Photo src={photo} loading="lazy" />
       <Title>{title}</Title>
-      <Link
-          to={link}
-          key={props.id}
-          style={{ textDecoration: "none" }}
-        >
+      <Link to={link} key={props.id} style={{ textDecoration: "none" }}>
         <More>Poznaj ofertę</More>
       </Link>
     </OfferDiv>

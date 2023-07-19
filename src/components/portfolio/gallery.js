@@ -5,11 +5,11 @@ import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
 import SESSION1 from "../../assets/narzeczenska/ZalewZegrzynski/SNZ1-2.jpg";
 import SESSION2 from "../../assets/indywidualna/Anastasia/Anastasia1.jpg";
-import SESSION3 from "../../assets/session1/boho3.jpg";
+import SESSION3 from "../../assets/mini3.jpg";
 import SESSION4 from "../../assets/reportaz/StodolaBorucza43/19.jpg";
 import SESSION5 from "../../assets/narzeczenska/HalaKoszyki/SNK2.jpg";
 import SESSION6 from "../../assets/narzeczenska/CentrumWarszawy/SNC2.jpg";
-import SESSION7 from "../../assets/reportaz/StodolaBorucza43/1.jpg";
+import SESSION7 from "../../assets/mini1.jpg";
 
 const Container = styled(FlexCenterContainer)`
   justify-content: space-between;
@@ -46,15 +46,15 @@ const ImgText = styled.div`
   cursor: pointer;
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  font-size: 1.8em;
+  font-size: ${(props) => (props.isMobile ? "0.8em" : "1.8em")};
   color: white;
 `;
 
 const Look = styled(ImgText)`
   font-family: "Montaser light";
-  font-size: 1.2em;
+  font-size: ${(props) => (props.isMobile ? "0.8em" : "1.2em")};
   padding: 0.6em 1em;
-  border: solid 2px white;
+  border: ${(props) => (props.isMobile ? "solid 1px white" : "solid 2px white")};
 `;
 
 const Gallery = () => {
@@ -120,9 +120,9 @@ const Gallery = () => {
             loading="lazy"
             {...props}
           />
-          <TextContainer>
-            <ImgText>{props.text}</ImgText>
-            <Look>Zobacz</Look>
+          <TextContainer isMobile={isMobile}>
+            <ImgText isMobile={isMobile}>{props.text}</ImgText>
+            <Look isMobile={isMobile}>Zobacz</Look>
           </TextContainer>
         </Link>
       </ImgContainer>

@@ -1,5 +1,5 @@
 import React from "react";
-import MARTIX from "../assets/martix.jpg";
+import MARTIX from "../assets/martix.jpeg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../style/common";

@@ -180,7 +180,7 @@ const MobileNavigation = () => {
             />
           </a>
           <a
-            href="https://www.facebook.com/gostkowska.martyna"
+            href="https://www.facebook.com/gostkowskaphotography"
             target="_blank"
             rel="noreferrer"
           >

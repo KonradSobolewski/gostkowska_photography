@@ -97,7 +97,7 @@ const Footer = () => {
               <SocialMediaItem src={IG} id="instagram" alt={"Instagram logo"} />
             </A>
             <A
-              href="https://www.facebook.com/gostkowska.martyna"
+              href="https://www.facebook.com/gostkowskaphotography"
               target="_blank"
               rel="noreferrer"
             >

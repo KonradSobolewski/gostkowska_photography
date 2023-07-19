@@ -18,7 +18,7 @@ const initialState = {
   isLoading: false,
 };
 
-export default (state = initialState, action) => {
+const contactReducer = (state = initialState, action) => {
   switch (action.type) {
     case SENDING_MAIL:
       return {
@@ -52,3 +52,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default contactReducer;

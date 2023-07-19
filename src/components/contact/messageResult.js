@@ -1,5 +1,5 @@
 import React from 'react';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import errorLottie from "../../assets/lottie/error-cross"
 import successLottie from "../../assets/lottie/success"
 import loadingLottie from "../../assets/lottie/loader"
