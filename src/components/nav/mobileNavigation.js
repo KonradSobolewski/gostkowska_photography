@@ -45,7 +45,7 @@ const NavLogoTab = styled(Tab)`
 `;
 
 const Img = styled.img`
-  filter: drop-shadow(0px 0px 4px #fff);
+  filter: drop-shadow(0px 0px 4px #555) invert(1);
   width: 8em;
   transition: all 0.5s ease-in-out;
 `;
@@ -116,7 +116,7 @@ const SocialMedia = styled(FlexCenterContainer)`
 const SocialMediaItem = styled.img`
   padding: 2em;
   width: 2em;
-  filter: invert(0.3);
+  filter: invert(0.6);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 `;
@@ -137,8 +137,8 @@ const MobileNavigation = () => {
             <Img
               show={show}
               src={logo1}
-              id="gostkowska_logo"
-              alt={"Logo of Martyna Gostkowska"}
+              id="sobolewska_logo"
+              alt={"Logo of Martyna Sobolewska"}
             />
           </a>
         </NavLogoTab>
@@ -151,10 +151,7 @@ const MobileNavigation = () => {
       </FirstRow>
       <NavTabs show={show}>
         <Tab show={show}>
-          <A href="#content">O mnie</A>
-        </Tab>
-        <Tab show={show}>
-          <A href="#history">Historie</A>
+          <A href="#history">Realizacje</A>
         </Tab>
         <Tab show={show}>
           <A href="#portfolio">Portfolio</A>
@@ -165,10 +162,15 @@ const MobileNavigation = () => {
         <Tab show={show}>
           <A href="#contact">Kontakt</A>
         </Tab>
+        <Tab show={show}>
+          <A href="https://sobolewskaphotography.photonesto.com/g">
+            Strefa Klienta
+          </A>
+        </Tab>
 
         <SocialMedia>
           <a
-            href="https://www.instagram.com/gostkowskaphotography/"
+            href="https://www.instagram.com/sobolewskaphotography/"
             target="_blank"
             rel="noreferrer"
           >
@@ -180,7 +182,7 @@ const MobileNavigation = () => {
             />
           </a>
           <a
-            href="https://www.facebook.com/gostkowskaphotography"
+            href="https://www.facebook.com/sobolewskamartynaphotography"
             target="_blank"
             rel="noreferrer"
           >

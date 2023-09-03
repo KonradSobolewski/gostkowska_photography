@@ -5,12 +5,11 @@ import { FlexCenterContainer, Colors } from "../../style/common";
 import { useSelector, useDispatch } from "react-redux";
 import { FormState } from "../../redux/reducers/contactReducer";
 import * as contactActions from "../../redux/actions/contactActions";
-import MessageResult from "./messageResult";
 
 const Container = styled(FlexCenterContainer)`
   flex-direction: column;
   padding: 2em;
-  background: ${Colors.cream};
+  background: ${Colors.lightCream};
 `;
 
 const Description = styled.div`
@@ -165,7 +164,6 @@ const Contact = () => {
           ></TextArea>
         </Item>
         <div>
-          <MessageResult result={sendingState.sendingResult} />
           <Button type="submit">Wyślij</Button>
         </div>
         <Required>* pola wymagane</Required>

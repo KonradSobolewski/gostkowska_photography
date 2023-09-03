@@ -9,7 +9,6 @@ import SwiperGallery from "./components/portfolio/swiperGallery";
 import Cookies from "./components/cookies/cookies";
 
 function App() {
-
   return (
     <div>
       <Cookies />

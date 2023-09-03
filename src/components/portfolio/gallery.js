@@ -3,13 +3,13 @@ import { FlexCenterContainer, Colors } from "../../style/common";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
-import SESSION1 from "../../assets/narzeczenska/ZalewZegrzynski/SNZ1-2.jpg";
-import SESSION2 from "../../assets/indywidualna/Anastasia/Anastasia1.jpg";
-import SESSION3 from "../../assets/mini3.jpg";
-import SESSION4 from "../../assets/reportaz/StodolaBorucza43/19.jpg";
-import SESSION5 from "../../assets/narzeczenska/HalaKoszyki/SNK2.jpg";
-import SESSION6 from "../../assets/narzeczenska/CentrumWarszawy/SNC2.jpg";
-import SESSION7 from "../../assets/mini1.jpg";
+import SESSION1 from "../../assets/gallery/1.jpg";
+import SESSION2 from "../../assets/gallery/2.jpg";
+import SESSION3 from "../../assets/gallery/3.jpg";
+import SESSION4 from "../../assets/gallery/4.jpg";
+import SESSION5 from "../../assets/gallery/5.JPG";
+import SESSION6 from "../../assets/gallery/6.jpg";
+import SESSION7 from "../../assets/gallery/7.jpg";
 
 const Container = styled(FlexCenterContainer)`
   justify-content: space-between;
@@ -65,19 +65,19 @@ const Gallery = () => {
       id: 1,
       src: SESSION1,
       height: height,
-      text: "Sesja narzeczeńska nad zalewem zegrzyńskim",
+      text: "Sesja ślubna w Łazienkach Królewskich",
     },
     {
       id: 2,
       src: SESSION2,
       height: height,
-      text: "Sesja miejska z Anastazją",
+      text: "Sesja miejska z Olą",
     },
     {
       id: 3,
       src: SESSION3,
       height: secondHeight,
-      text: "Sesja ślubna w stylu boho",
+      text: "Sesja narzeczeńska w centrum Warszawy",
     },
     {
       id: 4,
@@ -89,19 +89,19 @@ const Gallery = () => {
       id: 5,
       src: SESSION5,
       height: secondHeight,
-      text: "Sesja narzeczeńska w Hali Koszyki",
+      text: "Sesja narzeczeńska nad zalewem zegrzyńskim",
     },
     {
       id: 6,
       src: SESSION6,
       height: height,
-      text: "Sesja narzeczeńska w centrum Warszawy",
+      text: "Sesja ślubna w stylu boho",
     },
     {
       id: 7,
       src: SESSION7,
       height: height,
-      text: "Wesele w Pastelowych Polach",
+      text: "Sesja stylizowana w Pastelowych Polach",
     },
   ];
 

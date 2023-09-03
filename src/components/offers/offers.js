@@ -9,16 +9,17 @@ import { FlexCenterContainer, Colors, A } from "../../style/common";
 import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
 
-const Container = styled.div`
+const Container = styled(FlexCenterContainer)`
   background-image: url(${BG});
   background-size: cover;
   z-index: -2;
+  flex-direction: column
 `;
 
 const Header = styled.div`
   padding: 2em 0;
-  background: ${Colors.obsidian};
-  width: auto;
+  background: ${Colors.lightCream};
+  width: 100%;
   position: relative;
 `;
 
@@ -49,7 +50,7 @@ const OffersDiv = styled(FlexCenterContainer)`
 
 const OfferDiv = styled(FlexCenterContainer)`
   flex-direction: column;
-  background: ${Colors.obsidian};
+  background: ${Colors.lightBlack};
   margin: 2em;
 `;
 
@@ -69,13 +70,28 @@ const More = styled(FlexCenterContainer)`
   padding: 1em;
   margin: 1em;
   :hover {
-    color: ${Colors.buttonLight};
+    background: ${Colors.lightCream};
   }
 `;
 
 const Photo = styled.img`
   width: 15em;
   margin: 1em;
+`;
+
+const Button = styled.button`
+  all: unset;
+  padding: 1em 4em;
+  margin: 0 0 3em 0;
+  font-size: 1.5em;
+  background: ${Colors.cream};
+  cursor: pointer;
+  border: 1px solid #000;
+  transition: all 0.5s ease-in-out;
+
+  :hover {;
+    background: ${Colors.lightCream};
+  }
 `;
 
 const Offers = () => {
@@ -110,9 +126,12 @@ const Offers = () => {
     <Container id="offers">
       <Header>
         <Text isMobile={isMobile}>poznaj</Text>
-        <SecondText isMobile={isMobile}>ofertę</SecondText>
+        <SecondText isMobile={isMobile}>OFERTĘ</SecondText>
       </Header>
       <OffersDiv isMobile={isMobile}>{offers}</OffersDiv>
+      <Button>
+        Umów sesję
+      </Button>
     </Container>
   );
 };

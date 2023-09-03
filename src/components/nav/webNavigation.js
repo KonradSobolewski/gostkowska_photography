@@ -12,7 +12,7 @@ const Web = styled(FlexCenterContainer)`
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
-    ${(props) => (props.show ? 0.1 : 1)}
+    ${(props) => (props.show ? 0.25 : 1)}
   );
   position: relative;
   height: ${(props) => (props.show ? "8em" : "5em")};
@@ -20,10 +20,10 @@ const Web = styled(FlexCenterContainer)`
 
   :hover {
     background-color: rgba(
-      ${(props) => (props.show ? 0 : 235)},
-      ${(props) => (props.show ? 0 : 235)},
-      ${(props) => (props.show ? 0 : 235)},
-      ${(props) => (props.show ? 0.4 : 1)}
+      ${(props) => (props.show ? 0 : 255)},
+      ${(props) => (props.show ? 0 : 255)},
+      ${(props) => (props.show ? 0 : 255)},
+      ${(props) => (props.show ? 0.5 : 1)}
     );
   }
 `;
@@ -41,9 +41,10 @@ const NavTabs = styled(FlexCenterContainer)`
 `;
 
 const ContactContainer = styled(FlexCenterContainer)`
-right: 5%;
-transform: translate(5%, 0);
-position: absolute;`;
+  right: 5%;
+  transform: translate(5%, 0);
+  position: absolute;
+`;
 
 const Tab = styled.li`
   position: relative;
@@ -69,7 +70,7 @@ const NavLogoTab = styled(Tab)`
 `;
 
 const Img = styled.img`
-  filter: invert(${(props) => (props.show ? 1 : 0)})
+  filter: invert(${(props) => (props.show ? 0 : 1)})
     drop-shadow(0px 0px 4px #fff);
   width: ${(props) => (props.show ? "10em" : "6em")};
   transition: all 0.5s ease-in-out;
@@ -78,12 +79,12 @@ const Img = styled.img`
 const SocialMediaItem = styled.img`
   padding: 1em;
   width: ${(props) => (props.show ? "3em" : "2em")};
-  filter: invert(${(props) => (props.show ? 0.7 : 0.3)});
+  filter: invert(${(props) => (props.show ? 0.1 : 0.7)});
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 
   :hover {
-    filter: invert(${(props) => (props.show ? 1 : 0)});
+    filter: invert(${(props) => (props.show ? 0 : 1)});
   }
 `;
 
@@ -94,7 +95,7 @@ const WebNavigation = () => {
     <Web show={show}>
       <SocialMedia>
         <a
-          href="https://www.instagram.com/gostkowskaphotography/"
+          href="https://www.instagram.com/sobolewskaphotography/"
           target="_blank"
           rel="noreferrer"
         >
@@ -106,7 +107,7 @@ const WebNavigation = () => {
           />
         </a>
         <a
-          href="https://www.facebook.com/gostkowskaphotography"
+          href="https://www.facebook.com/sobolewskamartynaphotography"
           target="_blank"
           rel="noreferrer"
         >
@@ -120,31 +121,33 @@ const WebNavigation = () => {
       </SocialMedia>
       <NavTabs>
         <NavTab show={show}>
-          <A href="#content">O mnie</A>
+          <A href="#history">Realizacje</A>
         </NavTab>
         <NavTab show={show}>
-          <A href="#history">Historie</A>
+          <A href="#portfolio">Portfolio</A>
         </NavTab>
         <NavLogoTab show={show}>
           <a href=".">
             <Img
               show={show}
               src={logo1}
-              id="gostkowska_logo"
-              alt={"Logo of Martyna Gostkowska"}
+              id="sobolewska_logo"
+              alt={"Logo of Martyna Sobolewska"}
             />
           </a>
         </NavLogoTab>
         <NavTab show={show}>
-          <A href="#portfolio">Portfolio</A>
+          <A href="#offers">Oferta</A>
         </NavTab>
         <NavTab show={show}>
-          <A href="#offers">Oferta </A>
+          <A href="#contact">Kontakt</A>
         </NavTab>
       </NavTabs>
       <ContactContainer>
         <NavTab show={show}>
-          <A href="#contact">Kontakt </A>
+          <A href="https://sobolewskaphotography.photonesto.com/g">
+            Strefa Klienta
+          </A>
         </NavTab>
       </ContactContainer>
     </Web>

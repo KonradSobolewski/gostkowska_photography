@@ -1,26 +1,29 @@
 import React from "react";
-import MARTIX from "../assets/martix.jpeg";
+import MARTIX from "../assets/zdjfoto.jpg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../style/common";
+import BG from "../assets/offerbg.jpg";
 
 const Container = styled.div`
   position: relative;
-  width: auto;
   background: ${Colors.cream};
+
 `;
 
 const MartynaDiv = styled(FlexCenterContainer)`
-  padding: ${(props) => (props.isMobile ? "0 1e" : "4em 5em 0em 5em")};
-  margin: ${(props) => (props.isMobile ? "0" : "0em 5em 0em 4em ")};
+  padding: ${(props) => (props.isMobile ? "0" : "0em 5em 0 5em")};
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
+  background-image: url(${BG});
+  background-size: cover;
+  z-index: -2;
 `;
 
 const Img = styled.img`
   padding: ${(props) => (props.isMobile ? "1em" : " 0 0 0 5em")};
   width: ${(props) => (props.isMobile ? "16em" : "23em")};
   transform: ${(props) =>
-    props.isMobile ? " translateY(15%)" : " translateX(15%)"};
+    props.isMobile ? " translateY(15%)" : " translate(15%, -10%)"};
   filter: drop-shadow(3px 5px 7px #444);
   z-index: 2;
 `;
@@ -45,75 +48,71 @@ const Text = styled.div`
   }
 `;
 
+const ImgContainer = styled.div`
+  position: relative;
+`;
+
 const Title = styled.div`
+  position: absolute;
+  top: ${(props) => (props.isMobile ? "10%" : "-10%")};
+  left: -5%;
   white-space: nowrap;
-  display: ${(props) => (props.isMobile ? "none" : "initial")};
-  height: 1.3em;
+  height: 1.1em;
+  color: ${Colors.white};
+  background-color: ${Colors.lightBlack};
   font-family: "Billion Miracles";
-  font-size: 8em;
-  padding-bottom: 0.5em;
-  z-index: 2;
+  font-size: ${(props) => (props.isMobile ? "5em" : "8em")};
+  padding: 0 0.5em;
+  z-index: 5;
 `;
 
 const Singature = styled.div`
   margin-top: 0.5em;
-  font-size: 3em;
-  color: ${(props) => (props.isMobile ? Colors.black : "white")};
+  font-size: 4em;
+  color: ${Colors.black};
   font-family: "Billion Miracles";
-  z-index: 2;
 `;
 
-const Box = styled.div`
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 10em;
-  z-index: 1;
-  background: ${Colors.obsidian};
-  display: ${(props) => (props.isMobile ? "none" : "block")};
-
-  @media (max-width: 2000px) {
-    height: 10em;
-  }
-
-  @media (max-width: 1900px) {
-    height: 11em;
-  }
-
-  @media (max-width: 1700px) {
-    height: 10em;
-  }
+const Motto = styled.div`
+  text-align: center;
+  font-size: ${(props) => (props.isMobile ? "5vw" : "3vw")};
+  color: ${Colors.lightBlack};
+  padding: ${(props) => (props.isMobile ? "1.5em 0 0 0" : "1em")};
+  font-family: "Billion Miracles";
+  white-space: nowrap;
+  cursor: default;
+  text-transform: uppercase;
 `;
 
 function Content() {
   return (
     <Container isMobile={isMobile} id="content">
+      <Motto isMobile={isMobile}>
+        Fotografując staraj się pokazać to <br /> czego bez Ciebie nikt by nie
+        zobaczył <br /> Robert Bresson
+      </Motto>
       <MartynaDiv isMobile={isMobile}>
-        <Img
-          src={MARTIX}
-          id="martyna"
-          alt={"Martyna image"}
-          isMobile={isMobile}
-          loading="lazy"
-        />
+        <ImgContainer>
+          {/* <Title isMobile={isMobile}>Cześć!</Title> */}
+          <Img
+            src={MARTIX}
+            id="martyna"
+            alt={"Martyna image"}
+            isMobile={isMobile}
+            loading="lazy"
+          />
+        </ImgContainer>
         <Text isMobile={isMobile}>
           <div>
-            <Title isMobile={isMobile}>Cześć!</Title>
-            <br />
-          </div>
-          <div>
-            Mam na imię Martyna i fotografia to moja największa pasja od
-            dziecka. <br /> Pierwszy aparat analogowy dał mi do ręki tata i już
-            wtedy zakochałam się w możliwości uchwycenia nim piękna każdej
-            chwili. Przez ostatnie lata stale udoskonalałam swoje umiejętności i
-            poszerzałam wiedzę. Uczęszczałam do Akademii Fotografii, w której
-            odkryłam swój kierunek w fotografii. Od tego momentu wiem, że
-            niezwykłą radość sprawia mi fotografowanie szczęścia i miłości.
-            Uwielbiam współpracować z ludźmi pokazując ich emocje i więzi.
-            Uwielbiam też modę i branże urodową, więc chętnie podejmuję się
-            sesji streetowych oraz produktowych, w których mogę wykazać się
-            swoją kreatywnością.
+            Mam na imię Martyna, a fotografia towarzyszy mi od dziecka. Swoje
+            pierwsze poważne sesje zdjęciowe zaczęłamrobić ponad 6 lat temu.
+            Przez ten czas stale udoskonalałam swoje umiejętności i poszerzałam
+            wiedzę. Z czasem odkryłam swój kierunek w fotografii. Od tego
+            momentu wiem, że niezwykłą radość sprawia mi fotografowanie
+            szczęścia i miłości. Uwielbiam współpracować z ludźmi pokazując ich
+            emocje i więzi. Uwielbiam też modę i branżę urodową, więc chętnie
+            podejmuję się sesji streetowych oraz produktowych, w których mogę
+            wykazać się swoją kreatywnością.
             <br />
             <br />
           </div>
@@ -125,7 +124,6 @@ function Content() {
           <Singature isMobile={isMobile}>Martyna</Singature>
         </Text>
       </MartynaDiv>
-      <Box isMobile={isMobile}></Box>
     </Container>
   );
 }

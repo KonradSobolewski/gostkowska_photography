@@ -16,9 +16,11 @@ export const FlexCenterContainer = styled.div`
 `;
 
 export const Colors = {
-    "obsidian": "#2d2d2d",
+    "obsidian": "#272525",
     "white": "white",
-    "cream": "#dfdbd3",
+    "lightCream": "#ECE8E4",
+    "cream": "#CBBEB4",
+    "strongCream": "#8B7E74",
     "black": "black",
     "lightBlack": "#111",
     "button": "#806650",

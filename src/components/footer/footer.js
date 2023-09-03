@@ -42,7 +42,7 @@ const Upper = styled(FlexCenterContainer)`
   width: -webkit-fill-available;
   padding: 1em;
   color: ${Colors.white};
-  background-color: ${Colors.obsidian};
+  background-color: ${Colors.lightBlack};
 `;
 
 const SocialMedia = styled(FlexCenterContainer)`
@@ -55,7 +55,6 @@ const SocialMedia = styled(FlexCenterContainer)`
 const SocialMediaItem = styled.img`
   padding: 1em 1em 0 1em;
   width: 3em;
-  filter: invert(1);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 `;
@@ -73,7 +72,6 @@ const Contact = styled.div`
 `;
 
 const Instagram = styled.div`
-  // padding: 1em;
   color: ${Colors.white};
 `;
 
@@ -90,14 +88,14 @@ const Footer = () => {
           </div>
           <SocialMedia>
             <A
-              href="https://www.instagram.com/gostkowskaphotography/"
+              href="https://www.instagram.com/sobolewskaphotography/"
               target="_blank"
               rel="noreferrer"
             >
               <SocialMediaItem src={IG} id="instagram" alt={"Instagram logo"} />
             </A>
             <A
-              href="https://www.facebook.com/gostkowskaphotography"
+              href="https://www.facebook.com/sobolewskamartynaphotography"
               target="_blank"
               rel="noreferrer"
             >
@@ -121,7 +119,7 @@ const Footer = () => {
         </A>
       </Sites>
       <Copy>
-        Gostkowska Photography &copy; Warszawa 2022. All rights reserved.
+        Sobolewska Photography &copy; Warszawa 2023. All rights reserved.
       </Copy>
     </FooterStyle>
   );
