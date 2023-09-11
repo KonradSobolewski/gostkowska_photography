@@ -56,7 +56,7 @@ const NavBar = () => {
         {isMobile ? <MobileNavigation /> : <WebNavigation />}
       </Nav>
       <Bg>
-        <Img src={BG} id="bg" alt={"Background image"} />
+        <Img src={BG} id="bg" alt={"Background image"} loading="lazy"/>
       </Bg>
     </>
   );

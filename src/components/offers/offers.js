@@ -19,8 +19,7 @@ const Container = styled(FlexCenterContainer)`
 const Text = styled(FlexCenterContainer)`
   background: ${Colors.lightCream};
   width: 100%;
-  overflow: scroll
-  padding: 0.5em;
+  padding: 0.5em 0;
   color: ${Colors.lightBlack};
   font-size: ${(props) => (props.isMobile ? "3em" : "5em")};
   font-family: "Walterose";

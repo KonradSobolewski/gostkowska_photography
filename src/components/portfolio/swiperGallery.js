@@ -35,7 +35,7 @@ const Text = styled(FlexCenterContainer)`
 `;
 
 const MySwiperSmall = styled(Swiper)`
-  width: 80vw;
+  width: ${(props) => (props.isMobile ? "90vw" : "80vw")};;
 `;
 
 const SwiperGallery = () => {

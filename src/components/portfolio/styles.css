@@ -6,6 +6,9 @@
 
 .swiper-slide img {
   height: 30vw;
+  @media only screen and (max-width: 500px) { 
+    height: 50vw;
+  }
 }
 
 .swiper-scrollbar-drag {
