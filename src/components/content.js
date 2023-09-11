@@ -3,11 +3,11 @@ import MARTIX from "../assets/zdjfoto.jpg";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { FlexCenterContainer, Colors } from "../style/common";
-import BG from "../assets/offerbg.jpg";
+import BG from "../assets/kwiatkiwtle.jpg";
 
 const Container = styled.div`
   position: relative;
-  background: ${Colors.cream};
+  background: ${Colors.lightCream};
 
 `;
 
@@ -37,6 +37,9 @@ const Text = styled.div`
   line-height: 1.5;
   width: 60em;
   z-index: 2;
+  font-family: "Chocolates";
+  text-align: justify;
+  text-justify: inter-word;
 
   @media (max-width: 1200px) {
     width: 50em;
@@ -52,44 +55,36 @@ const ImgContainer = styled.div`
   position: relative;
 `;
 
-const Title = styled.div`
-  position: absolute;
-  top: ${(props) => (props.isMobile ? "10%" : "-10%")};
-  left: -5%;
-  white-space: nowrap;
-  height: 1.1em;
-  color: ${Colors.white};
-  background-color: ${Colors.lightBlack};
-  font-family: "Billion Miracles";
-  font-size: ${(props) => (props.isMobile ? "5em" : "8em")};
-  padding: 0 0.5em;
-  z-index: 5;
-`;
-
 const Singature = styled.div`
   margin-top: 0.5em;
   font-size: 4em;
   color: ${Colors.black};
-  font-family: "Billion Miracles";
+  font-family: "Emitha";
+  text-align: ${(props) => (props.isMobile ? "center" : "left")};
 `;
 
 const Motto = styled.div`
   text-align: center;
-  font-size: ${(props) => (props.isMobile ? "5vw" : "3vw")};
+  font-size: ${(props) => (props.isMobile ? "11vw" : "5vw")};
   color: ${Colors.lightBlack};
-  padding: ${(props) => (props.isMobile ? "1.5em 0 0 0" : "1em")};
-  font-family: "Billion Miracles";
-  white-space: nowrap;
+  padding: ${(props) => (props.isMobile ? "1em 0 1em 0" : "0.5em 1em 1em 1em")};
+  font-family: "Emitha";
   cursor: default;
-  text-transform: uppercase;
+
+`;
+
+const AUTHOR = styled.div`
+font-family: "Chocolates";
+text-transform: uppercase;
+font-size: ${(props) => (props.isMobile ? "3vw" : "1vw")};
 `;
 
 function Content() {
   return (
     <Container isMobile={isMobile} id="content">
       <Motto isMobile={isMobile}>
-        Fotografując staraj się pokazać to <br /> czego bez Ciebie nikt by nie
-        zobaczył <br /> Robert Bresson
+        " Fotografując staraj się pokazać to {isMobile ? <br /> : ("")}czego bez Ciebie nikt by nie zobaczył " <br /> 
+        <AUTHOR isMobile={isMobile}>Robert Bresson</AUTHOR>
       </Motto>
       <MartynaDiv isMobile={isMobile}>
         <ImgContainer>

@@ -13,30 +13,17 @@ const Container = styled(FlexCenterContainer)`
   background-image: url(${BG});
   background-size: cover;
   z-index: -2;
-  flex-direction: column
-`;
-
-const Header = styled.div`
-  padding: 2em 0;
-  background: ${Colors.lightCream};
-  width: 100%;
-  position: relative;
+  flex-direction: column;
 `;
 
 const Text = styled(FlexCenterContainer)`
-  color: ${Colors.white};
-  font-size: ${(props) => (props.isMobile ? "2em" : "2em")};
-  font-family: "Montaser extra-light";
-  @media (max-width: 350px) {
-    font-size: 4em;
-  }
-`;
-
-const SecondText = styled(FlexCenterContainer)`
-  color: ${Colors.white};
-  font-size: ${(props) => (props.isMobile ? "3em" : "7em")};
-  font-family: "Billion Miracles";
-
+  background: ${Colors.lightCream};
+  width: 100%;
+  overflow: scroll
+  padding: 0.5em;
+  color: ${Colors.lightBlack};
+  font-size: ${(props) => (props.isMobile ? "3em" : "5em")};
+  font-family: "Walterose";
   @media (max-width: 350px) {
     font-size: 2em;
   }
@@ -44,52 +31,41 @@ const SecondText = styled(FlexCenterContainer)`
 
 const OffersDiv = styled(FlexCenterContainer)`
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
-  padding:  ${(props) => (props.isMobile ? "2em" : "5em")};
+  padding: ${(props) => (props.isMobile ? "2em" : "5em")};
   color: ${Colors.white};
 `;
 
 const OfferDiv = styled(FlexCenterContainer)`
   flex-direction: column;
   background: ${Colors.lightBlack};
-  margin: 2em;
+  margin: 1em 2em;
 `;
 
 const Title = styled.div`
-  font-family: "Billion Miracles";
+  font-family: "Montaser extra-light";
   white-space: nowrap;
-  font-size: 3em;
+  font-size: 1.5em;
   text-align: inherit;
-`;
-
-const More = styled(FlexCenterContainer)`
-  pointer-events: auto;
-  cursor: pointer;
-  color: ${Colors.black};
-  background: ${Colors.cream};
-  transition: all 0.3s ease-in-out;
-  padding: 1em;
-  margin: 1em;
-  :hover {
-    background: ${Colors.lightCream};
-  }
+  padding: 0.5em;
 `;
 
 const Photo = styled.img`
-  width: 15em;
-  margin: 1em;
+  width: 17em;
+  margin: 0.2em;
 `;
 
 const Button = styled.button`
   all: unset;
-  padding: 1em 4em;
+  padding: 0.5em 2em;
   margin: 0 0 3em 0;
-  font-size: 1.5em;
+  font-size: 2em;
   background: ${Colors.cream};
   cursor: pointer;
   border: 1px solid #000;
   transition: all 0.5s ease-in-out;
-
-  :hover {;
+  display:flex;
+  align-items: center;
+  :hover {
     background: ${Colors.lightCream};
   }
 `;
@@ -101,50 +77,51 @@ const Offers = () => {
       title: "Sesja indywidualna",
       photo: Indywidualna,
       link: "/indywidualna",
+      alt: "Individual session"
     },
     {
       id: 2,
       title: "Sesja narzeczeńska",
       photo: Narzeczenskie,
       link: "/narzeczenska",
+      alt: "Engagement session"
     },
     {
       id: 3,
       title: "Sesja ślubna",
       photo: Slubne,
       link: "/slubna",
+      alt: "Married session"
     },
     {
       id: 4,
       title: "Reportaż",
       photo: Reportaze,
       link: "/reportaz",
+      alt: "Wedding reportage"
     },
   ].map((it) => <Offer key={it.title} params={it} />);
 
   return (
     <Container id="offers">
-      <Header>
-        <Text isMobile={isMobile}>poznaj</Text>
-        <SecondText isMobile={isMobile}>OFERTĘ</SecondText>
-      </Header>
+      <Text isMobile={isMobile}>oferta</Text>
       <OffersDiv isMobile={isMobile}>{offers}</OffersDiv>
       <Button>
-        Umów sesję
+        <A href="https://sobolewskaphotography.bookmy.art">Umów sesję</A>
       </Button>
     </Container>
   );
 };
 
 const Offer = (props) => {
-  const { title, photo, link } = props.params;
+  const { title, photo, link, alt } = props.params;
 
   return (
     <OfferDiv>
-      <Photo src={photo} loading="lazy" />
+      <Photo src={photo} loading="lazy" alt={alt} />
       <Title>{title}</Title>
       <Link to={link} key={props.id} style={{ textDecoration: "none" }}>
-        <More>Poznaj ofertę</More>
+        {/* <More>Poznaj ofertę</More> */}
       </Link>
     </OfferDiv>
   );

@@ -4,6 +4,7 @@ import { A, FlexCenterContainer } from "../../style/common";
 import logo1 from "../../assets/LOGO.png";
 import IG from "../../assets/ig.png";
 import FB from "../../assets/fb.png";
+import USER from "../../assets/padlock.png";
 
 const Background = styled(FlexCenterContainer)`
   color: #555;
@@ -105,7 +106,7 @@ const NavTabs = styled(Background)`
   z-index: 0;
   flex-direction: column;
 
-  transform: translateY(${(props) => (props.show ? "0%" : "-100%")});
+  transform: translateY(${(props) => (props.show ? "-1%" : "-100%")});
   transition: all 0.5s ease-in-out;
 `;
 
@@ -121,11 +122,33 @@ const SocialMediaItem = styled.img`
   transition: all 0.5s ease-in-out;
 `;
 
+const User = styled.img`
+  width: 1.5em;
+  padding-right: 0.5em;
+`;
+
 const MobileNavigation = () => {
   const [show, setShow] = useState(false);
 
   const handleClick = (event) => {
     setShow(event.target.checked);
+  };
+
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    const hamburger = document.getElementById("hamburger");
+    hamburger.checked = false;
+    setShow(false);
+  };
+
+  const logoStyle = {
+    display: "flex",
+    "align-items": "center",
   };
 
   return (
@@ -139,37 +162,42 @@ const MobileNavigation = () => {
               src={logo1}
               id="sobolewska_logo"
               alt={"Logo of Martyna Sobolewska"}
+              loading="lazy"
             />
           </a>
         </NavLogoTab>
         <Hamburger>
-          <Input type="checkbox" onClick={handleClick} />
+          <Input id="hamburger" type="checkbox" onClick={handleClick} />
           <Span></Span>
           <Span></Span>
           <Span></Span>
         </Hamburger>
       </FirstRow>
       <NavTabs show={show}>
-        <Tab show={show}>
-          <A href="#history">Realizacje</A>
+        <Tab show={show} onClick={() => scrollTo("history")}>
+          Realizacje
+        </Tab>
+        <Tab show={show} onClick={() => scrollTo("portfolio")}>
+          Portfolio
+        </Tab>
+        <Tab show={show} onClick={() => scrollTo("offers")}>
+          Oferta
+        </Tab>
+        <Tab show={show} onClick={() => scrollTo("contact")}>
+          Kontakt
         </Tab>
         <Tab show={show}>
-          <A href="#portfolio">Portfolio</A>
-        </Tab>
-        <Tab show={show}>
-          <A href="#offers">Oferta</A>
-        </Tab>
-        <Tab show={show}>
-          <A href="#contact">Kontakt</A>
-        </Tab>
-        <Tab show={show}>
-          <A href="https://sobolewskaphotography.photonesto.com/g">
+          <A
+            href="https://sobolewskaphotography.photonesto.com/g"
+            style={logoStyle}
+          >
+            <User src={USER} alt="User area icon" loading="lazy"/>
             Strefa Klienta
           </A>
         </Tab>
 
         <SocialMedia>
-          <a
+          <A
             href="https://www.instagram.com/sobolewskaphotography/"
             target="_blank"
             rel="noreferrer"
@@ -179,9 +207,10 @@ const MobileNavigation = () => {
               src={IG}
               id="instagram"
               alt={"Instagram logo"}
+              loading="lazy"
             />
-          </a>
-          <a
+          </A>
+          <A
             href="https://www.facebook.com/sobolewskamartynaphotography"
             target="_blank"
             rel="noreferrer"
@@ -191,8 +220,9 @@ const MobileNavigation = () => {
               src={FB}
               id="facebook"
               alt={"Facebook logo"}
+              loading="lazy"
             />
-          </a>
+          </A>
         </SocialMedia>
       </NavTabs>
     </Mobile>

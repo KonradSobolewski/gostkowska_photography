@@ -1,14 +1,10 @@
 body {
   margin: 0;
-  font-family: "Montaser light";
+  font-family: "Chocolates";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "Montaser light";
-}
-
-html {
-  scroll-behavior: smooth;
+  font-family: "Chocolates";
 }

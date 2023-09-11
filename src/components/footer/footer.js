@@ -11,7 +11,7 @@ const FooterStyle = styled(FlexCenterContainer)`
   bottom: 0;
   flex-direction: column;
   background: ${Colors.lightBlack};
-  color: ${Colors.cream};
+  color: #ddd;
 
   @media only screen and (max-width: 600px) {
     font-size: 0.6em;
@@ -23,7 +23,7 @@ const Sites = styled(FlexCenterContainer)`
 `;
 
 const Site = styled.div`
-  padding: 2em 2em 0 2em;
+  padding: 0 2em;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
@@ -75,48 +75,54 @@ const Instagram = styled.div`
   color: ${Colors.white};
 `;
 
+const DATA = styled(FlexCenterContainer)`
+  flex-direction: column;
+`;
+
 const Footer = () => {
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
+
   return (
-    <FooterStyle>
+    <FooterStyle id="contact">
       <Instagram></Instagram>
       <Upper>
         <Contact>
-          <div>
-            gostkowskamartyna.info@gmail.com
-            <br />
-            tel. 782-884-474
-          </div>
+          <DATA>
+            <A href="mailto:sobolewskaphotography@gmail.com">
+              sobolewskaphotography@gmail.com
+            </A>
+            <A href="tel:+48782884474">tel. 782-884-474</A>
+          </DATA>
           <SocialMedia>
             <A
               href="https://www.instagram.com/sobolewskaphotography/"
               target="_blank"
               rel="noreferrer"
             >
-              <SocialMediaItem src={IG} id="instagram" alt={"Instagram logo"} />
+              <SocialMediaItem src={IG} id="instagram" alt={"Instagram logo"} loading="lazy"/>
             </A>
             <A
               href="https://www.facebook.com/sobolewskamartynaphotography"
               target="_blank"
               rel="noreferrer"
             >
-              <SocialMediaItem src={FB} id="facebook" alt={"Facebook logo"} />
+              <SocialMediaItem src={FB} id="facebook" alt={"Facebook logo"} loading="lazy"/>
             </A>
           </SocialMedia>
         </Contact>
       </Upper>
       <Sites>
-        <A href="/#content">
-          <Site> O mnie</Site>
-        </A>
-        <A href="/#portfolio">
-          <Site>Portfolio</Site>
-        </A>
-        <A href="/#offers">
-          <Site>Oferta</Site>
-        </A>
-        <A href="/#contact">
-          <Site>Kontakt</Site>
-        </A>
+        <Site onClick={() => scrollTo("history")}>Realizacje</Site>
+        <Site onClick={() => scrollTo("portfolio")}>Portfolio</Site>
+        <Site onClick={() => scrollTo("offers")}>Oferta</Site>
+        <Site onClick={() => scrollTo("contact")}>Kontakt</Site>
       </Sites>
       <Copy>
         Sobolewska Photography &copy; Warszawa 2023. All rights reserved.

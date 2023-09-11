@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo1 from "../../assets/LOGO.png";
 import IG from "../../assets/ig.png";
 import FB from "../../assets/fb.png";
+import USER from "../../assets/padlock.png";
 import { useSelector } from "react-redux";
 import { A, FlexCenterContainer } from "../../style/common";
 
@@ -52,7 +53,7 @@ const Tab = styled.li`
   cursor: pointer;
   padding: 0px 40px;
   display: flex;
-  font-size: 1.2em;
+  font-size: 1.3em;
   white-space: nowrap;
   align-items: center;
   transition: all 0.5s ease-in-out;
@@ -72,7 +73,7 @@ const NavLogoTab = styled(Tab)`
 const Img = styled.img`
   filter: invert(${(props) => (props.show ? 0 : 1)})
     drop-shadow(0px 0px 4px #fff);
-  width: ${(props) => (props.show ? "10em" : "6em")};
+  width: ${(props) => (props.show ? "15em" : "7em")};
   transition: all 0.5s ease-in-out;
 `;
 
@@ -88,8 +89,33 @@ const SocialMediaItem = styled.img`
   }
 `;
 
+const User = styled.img`
+    width:1.5em;
+    filter: invert(${(props) => (props.show ? 0.9 : 0.2)});
+    padding-right: .5em;
+    transition: all 0.5s ease-in-out;
+
+    :hover {
+      filter: invert(${(props) => (props.show ? 1: 0)});
+    }
+`;
+
 const WebNavigation = () => {
   const show = useSelector((state) => state.nav).show;
+
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
+
+  const logoStyle = {
+    "display": "flex",
+    "align-items": "center"
+  }
 
   return (
     <Web show={show}>
@@ -104,6 +130,7 @@ const WebNavigation = () => {
             src={IG}
             id="instagram"
             alt={"Instagram logo"}
+            loading="lazy"
           />
         </a>
         <a
@@ -116,15 +143,16 @@ const WebNavigation = () => {
             src={FB}
             id="facebook"
             alt={"Facebook logo"}
+            loading="lazy"
           />
         </a>
       </SocialMedia>
       <NavTabs>
-        <NavTab show={show}>
-          <A href="#history">Realizacje</A>
+        <NavTab show={show} onClick={() => scrollTo("history")}>
+          Realizacje
         </NavTab>
-        <NavTab show={show}>
-          <A href="#portfolio">Portfolio</A>
+        <NavTab show={show} onClick={() => scrollTo("portfolio")}>
+          Portfolio
         </NavTab>
         <NavLogoTab show={show}>
           <a href=".">
@@ -133,19 +161,21 @@ const WebNavigation = () => {
               src={logo1}
               id="sobolewska_logo"
               alt={"Logo of Martyna Sobolewska"}
+              loading="lazy"
             />
           </a>
         </NavLogoTab>
-        <NavTab show={show}>
-          <A href="#offers">Oferta</A>
+        <NavTab show={show} onClick={() => scrollTo("offers")}>
+          Oferta
         </NavTab>
-        <NavTab show={show}>
-          <A href="#contact">Kontakt</A>
+        <NavTab show={show} onClick={() => scrollTo("contact")}>
+          Kontakt
         </NavTab>
       </NavTabs>
       <ContactContainer>
         <NavTab show={show}>
-          <A href="https://sobolewskaphotography.photonesto.com/g">
+          <A href="https://sobolewskaphotography.photonesto.com/g" style={logoStyle}>
+            <User src={USER}  show={show} alt="User area icon" loading="lazy"/>
             Strefa Klienta
           </A>
         </NavTab>

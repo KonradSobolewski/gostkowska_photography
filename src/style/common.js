@@ -22,7 +22,7 @@ export const Colors = {
     "cream": "#CBBEB4",
     "strongCream": "#8B7E74",
     "black": "black",
-    "lightBlack": "#111",
+    "lightBlack": "#1d1d1d",
     "button": "#806650",
     "buttonLight": "#B38E70"
 };
