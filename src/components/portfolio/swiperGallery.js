@@ -3,10 +3,8 @@ import { FlexCenterContainer, Colors } from "../../style/common";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-// import required modules
+import "swiper/css";
+import "swiper/css/bundle";
 import { Navigation, Thumbs, Pagination } from "swiper";
 import "./styles.css";
 import Z1 from "../../assets/portfolio/portfolio1.jpg";
