@@ -36,6 +36,16 @@ const Tab = styled.li`
   transition: all 0.5s ease-in-out;
 `;
 
+const NavTabs = styled(Background)`
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+  flex-direction: column;
+  top: 0;
+  transform: translateY(${(props) => (props.show ? "25%" : "-80%")});
+  transition: all 0.5s ease-in-out;
+`;
+
 const NavLogoTab = styled(Tab)`
   flex: 1;
   padding: ${(props) => (props.show ? "1em" : ".5em")};
@@ -47,7 +57,7 @@ const NavLogoTab = styled(Tab)`
 
 const Img = styled.img`
   filter: drop-shadow(0px 0px 4px #555) invert(1);
-  width: 8em;
+  width: 7em;
   transition: all 0.5s ease-in-out;
 `;
 
@@ -101,15 +111,6 @@ const Span = styled.span`
   }
 `;
 
-const NavTabs = styled(Background)`
-  width: 100%;
-  z-index: 0;
-  flex-direction: column;
-
-  transform: translateY(${(props) => (props.show ? "-1%" : "-100%")});
-  transition: all 0.5s ease-in-out;
-`;
-
 const SocialMedia = styled(FlexCenterContainer)`
   flex: 1;
 `;
@@ -147,8 +148,8 @@ const MobileNavigation = () => {
   };
 
   const logoStyle = {
-    display: "flex",
-    "align-items": "center",
+    "display": "flex",
+    "alignItems": "center"
   };
 
   return (
