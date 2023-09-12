@@ -5,7 +5,7 @@ import { isMobile } from "react-device-detect";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
-import { Navigation, Thumbs, Pagination } from "swiper";
+import { Navigation, Thumbs, Pagination, Autoplay } from "swiper";
 import "./styles.css";
 import Z1 from "../../assets/portfolio/portfolio1.jpg";
 import Z2 from "../../assets/portfolio/portfolio2.jpg";
@@ -33,7 +33,10 @@ const Text = styled(FlexCenterContainer)`
 `;
 
 const MySwiperSmall = styled(Swiper)`
-  width: ${(props) => (props.isMobile ? "90vw" : "80vw")};;
+  width: 80vw;
+  @media (max-width: 500px) {
+    width: 90vw
+  }
 `;
 
 const SwiperGallery = () => {
@@ -48,12 +51,15 @@ const SwiperGallery = () => {
         loop={true}
         spaceBetween={5}
         slidesPerView={"auto"}
-        modules={[Navigation, Thumbs, Pagination]}
+        modules={[Navigation, Thumbs, Pagination, Autoplay]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         navigation={true}
         pagination={{
           clickable: true,
         }}
-        isMobile={isMobile}
       >
         <SwiperSlide>
           <img src={Z1} loading="lazy" alt="zdjecie portfolio 1"/>

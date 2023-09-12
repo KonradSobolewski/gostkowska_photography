@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import "./style/index.css";
 import App from "./App";
 import Session from "./components/session/session";
@@ -22,7 +22,8 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <FontStyles />
@@ -39,6 +40,5 @@ ReactDOM.render(
         </Routes>
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

@@ -114,7 +114,7 @@ const WebNavigation = () => {
 
   const logoStyle = {
     "display": "flex",
-    "align-items": "center"
+    "alignItems": "center"
   }
 
   return (
