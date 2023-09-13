@@ -7,7 +7,7 @@ import SESSION1 from "../../assets/gallery/1.jpg";
 import SESSION2 from "../../assets/gallery/2.jpg";
 import SESSION3 from "../../assets/gallery/3.jpg";
 import SESSION4 from "../../assets/gallery/4.jpg";
-import SESSION5 from "../../assets/gallery/5.jpg";
+import SESSION5 from "../../assets/gallery/5i.jpg";
 import SESSION6 from "../../assets/gallery/6.jpg";
 import SESSION7 from "../../assets/gallery/7.jpg";
 
