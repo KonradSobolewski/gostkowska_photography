@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { A, FlexCenterContainer } from "../../style/common";
 
 const Web = styled(FlexCenterContainer)`
-  color: ${(props) => (props.show ? "#DDD" : "#555")};
+  color: ${(props) => (props.show ? "#EEE" : "#444")};
   background-color: rgba(
     ${(props) => (props.show ? 0 : 250)},
     ${(props) => (props.show ? 0 : 250)},
@@ -62,7 +62,6 @@ const Tab = styled.li`
 const NavTab = styled(Tab)`
   :hover {
     color: ${(props) => (props.show ? "#FFF" : "#000")};
-    filter: drop-shadow(0px 0px 20px #fff);
   }
 `;
 
@@ -90,13 +89,13 @@ const SocialMediaItem = styled.img`
 `;
 
 const User = styled.img`
-    width:1.5em;
-    filter: invert(${(props) => (props.show ? 0.9 : 0.2)});
+    width:1.3em;
+    filter: invert(${(props) => (props.show ? 0 : 1)});
     padding-right: .5em;
     transition: all 0.5s ease-in-out;
 
     :hover {
-      filter: invert(${(props) => (props.show ? 1: 0)});
+      filter: invert(${(props) => (props.show ? 0 : 1)});
     }
 `;
 

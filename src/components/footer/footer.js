@@ -10,7 +10,7 @@ const FooterStyle = styled(FlexCenterContainer)`
   position: relative;
   bottom: 0;
   flex-direction: column;
-  background: ${Colors.lightBlack};
+  background: ${Colors.lightCream};
   color: #ddd;
 
   @media only screen and (max-width: 600px) {
@@ -26,27 +26,28 @@ const Site = styled.div`
   padding: 0 2em;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-
+  color: ${Colors.lightBlack};
   :hover {
-    color: ${Colors.white};
+    color: ${Colors.black};
   }
 `;
 
 const Copy = styled.div`
   padding: 2em;
-  color: ${Colors.white};
+  color: ${Colors.lightBlack};
 `;
 
 const Upper = styled(FlexCenterContainer)`
   flex-direction: row;
   width: -webkit-fill-available;
   padding: 1em;
-  color: ${Colors.white};
-  background-color: ${Colors.lightBlack};
+  color: ${Colors.lightBlack};
+  background-color: ${Colors.lightCream};
 `;
 
 const SocialMedia = styled(FlexCenterContainer)`
   padding: 0 5em;
+  filter: invert(0.7);
   @media only screen and (max-width: 1000px) {
     padding: 0;
   }
@@ -62,7 +63,7 @@ const SocialMediaItem = styled.img`
 const Contact = styled.div`
   display: inherit;
   padding: 1em;
-  color: ${Colors.white};
+  color: ${Colors.lightBlack};
   text-align: left;
   line-height: 2em;
 
@@ -72,7 +73,7 @@ const Contact = styled.div`
 `;
 
 const Instagram = styled.div`
-  color: ${Colors.white};
+  color: ${Colors.lightBlack};
 `;
 
 const DATA = styled(FlexCenterContainer)`

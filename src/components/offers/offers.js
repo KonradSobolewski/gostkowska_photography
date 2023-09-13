@@ -36,16 +36,18 @@ const OffersDiv = styled(FlexCenterContainer)`
 
 const OfferDiv = styled(FlexCenterContainer)`
   flex-direction: column;
-  background: ${Colors.lightBlack};
+  background: ${Colors.cream};
   margin: 1em 2em;
 `;
 
 const Title = styled.div`
-  font-family: "Montaser extra-light";
+  font-family: "chocolates";
   white-space: nowrap;
-  font-size: 1.5em;
+  font-size: 1.4em;
   text-align: inherit;
   padding: 0.5em;
+  color: ${Colors.lightBlack};
+  text-transform: uppercase;
 `;
 
 const Photo = styled.img`
@@ -55,9 +57,9 @@ const Photo = styled.img`
 
 const Button = styled.button`
   all: unset;
-  padding: 0.5em 2em;
-  margin: 0 0 3em 0;
-  font-size: 2em;
+  padding: 1em 2em;
+  margin: 0 0 4em 0;
+  font-size: 1.5em;
   background: ${Colors.cream};
   cursor: pointer;
   border: 1px solid #000;
@@ -106,7 +108,7 @@ const Offers = () => {
       <Text isMobile={isMobile}>oferta</Text>
       <OffersDiv isMobile={isMobile}>{offers}</OffersDiv>
       <Button>
-        <A href="https://sobolewskaphotography.bookmy.art">Umów sesję</A>
+        <A href="https://sobolewskaphotography.bookmy.art">UMÓW TERMIN SWOJEJ SESJI</A>
       </Button>
     </Container>
   );

@@ -7,7 +7,7 @@ import FB from "../../assets/fb.png";
 import USER from "../../assets/padlock.png";
 
 const Background = styled(FlexCenterContainer)`
-  color: #555;
+  color: #333;
   background-color: rgba(250, 250, 250, 1);
   transition: color 0.1s, background-color 0.5s ease-in-out;
 `;
@@ -118,14 +118,15 @@ const SocialMedia = styled(FlexCenterContainer)`
 const SocialMediaItem = styled.img`
   padding: 2em;
   width: 2em;
-  filter: invert(0.6);
+  filter: invert(0.7);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 `;
 
 const User = styled.img`
-  width: 1.5em;
+  width: 1em;
   padding-right: 0.5em;
+  filter: invert(1);
 `;
 
 const MobileNavigation = () => {

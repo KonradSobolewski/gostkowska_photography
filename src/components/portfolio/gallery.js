@@ -7,12 +7,12 @@ import SESSION1 from "../../assets/gallery/1.jpg";
 import SESSION2 from "../../assets/gallery/2.jpg";
 import SESSION3 from "../../assets/gallery/3.jpg";
 import SESSION4 from "../../assets/gallery/4.jpg";
-import SESSION5 from "../../assets/gallery/5.JPG";
+import SESSION5 from "../../assets/gallery/5.jpg";
 import SESSION6 from "../../assets/gallery/6.jpg";
 import SESSION7 from "../../assets/gallery/7.jpg";
 
 const Container = styled(FlexCenterContainer)`
-  justify-content: space-between;
+  // justify-content: space-between;
   box-sizing: content-box;
 `;
 
@@ -27,6 +27,7 @@ const ImgContainer = styled.div`
 `;
 
 const Img = styled.img`
+  display: block;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 `;
