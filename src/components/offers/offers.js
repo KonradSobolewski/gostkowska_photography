@@ -32,12 +32,19 @@ const OffersDiv = styled(FlexCenterContainer)`
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
   padding: ${(props) => (props.isMobile ? "2em" : "5em")};
   color: ${Colors.white};
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 
 const OfferDiv = styled(FlexCenterContainer)`
   flex-direction: column;
   background: ${Colors.cream};
   margin: 1em 2em;
+
+  @media (max-width: 1200px) {
+    margin: 1em 1em;
+  }
 `;
 
 const Title = styled.div`
@@ -48,18 +55,27 @@ const Title = styled.div`
   padding: 0.5em;
   color: ${Colors.lightBlack};
   text-transform: uppercase;
+
+  @media (max-width: 1200px) {
+    font-size: 1.2em;
+  }
 `;
 
 const Photo = styled.img`
   width: 17em;
   margin: 0.2em;
+
+  @media (max-width: 1200px) {
+    width: 14em;
+  }
 `;
 
 const Button = styled.button`
   all: unset;
   padding: 1em 2em;
+  white-space: nowrap;
   margin: 0 0 4em 0;
-  font-size: 1.5em;
+  font-size: ${(props) => (props.isMobile ? "1em" : "1.5em")};
   background: ${Colors.cream};
   cursor: pointer;
   border: 1px solid #000;
@@ -107,7 +123,7 @@ const Offers = () => {
     <Container id="offers">
       <Text isMobile={isMobile}>oferta</Text>
       <OffersDiv isMobile={isMobile}>{offers}</OffersDiv>
-      <Button>
+      <Button isMobile={isMobile}>
         <A href="https://sobolewskaphotography.bookmy.art">UMÓW TERMIN SWOJEJ SESJI</A>
       </Button>
     </Container>

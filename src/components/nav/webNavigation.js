@@ -57,6 +57,11 @@ const Tab = styled.li`
   white-space: nowrap;
   align-items: center;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1250px) {
+    font-size: 1em;
+    padding: 0px 20px;
+  }
 `;
 
 const NavTab = styled(Tab)`
