@@ -4,6 +4,8 @@ import Indywidualna from "../../assets/offer/Indywidualne.jpg";
 import Narzeczenskie from "../../assets/offer/Narzeczenskie.jpg";
 import Reportaze from "../../assets/offer/Reportaze.jpg";
 import Slubne from "../../assets/offer/Slubne.jpg";
+import Fotoprodukty from "../../assets/offer/Fotoprodukty.jpg";
+import Produktowe from "../../assets/offer/Produktowe.jpg";
 import BG from "../../assets/offerbg.jpg";
 import { FlexCenterContainer, Colors, A } from "../../style/common";
 import { isMobile } from "react-device-detect";
@@ -30,7 +32,7 @@ const Text = styled(FlexCenterContainer)`
 
 const OffersDiv = styled(FlexCenterContainer)`
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
-  padding: ${(props) => (props.isMobile ? "2em" : "5em")};
+  padding: 2em 0 0 0;
   color: ${Colors.white};
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -74,7 +76,7 @@ const Button = styled.button`
   all: unset;
   padding: 1em 2em;
   white-space: nowrap;
-  margin: 0 0 4em 0;
+  margin: 3em 0 4em 0;
   font-size: ${(props) => (props.isMobile ? "1em" : "1.5em")};
   background: ${Colors.cream};
   cursor: pointer;
@@ -88,7 +90,7 @@ const Button = styled.button`
 `;
 
 const Offers = () => {
-  const offers = [
+  const offers1 = [
     {
       id: 1,
       title: "Sesja indywidualna",
@@ -109,7 +111,10 @@ const Offers = () => {
       photo: Slubne,
       link: "/slubna",
       alt: "Married session"
-    },
+    }
+  ].map((it) => <Offer key={it.title} params={it} />);
+
+  const offers2 = [
     {
       id: 4,
       title: "Reportaż",
@@ -117,12 +122,27 @@ const Offers = () => {
       link: "/reportaz",
       alt: "Wedding reportage"
     },
+    {
+      id: 5,
+      title: "Produktowe",
+      photo: Produktowe,
+      link: "/oroduktowe",
+      alt: "product session"
+    },
+    {
+      id: 6,
+      title: "Fotoprodukty",
+      photo: Fotoprodukty,
+      link: "/otoprodukty",
+      alt: "fotoproduct session"
+    },
   ].map((it) => <Offer key={it.title} params={it} />);
 
   return (
     <Container id="offers">
       <Text isMobile={isMobile}>oferta</Text>
-      <OffersDiv isMobile={isMobile}>{offers}</OffersDiv>
+      <OffersDiv isMobile={isMobile}>{offers1}</OffersDiv>
+      <OffersDiv isMobile={isMobile}>{offers2}</OffersDiv>
       <Button isMobile={isMobile}>
         <A href="https://sobolewskaphotography.bookmy.art">UMÓW TERMIN SWOJEJ SESJI</A>
       </Button>

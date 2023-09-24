@@ -59,8 +59,8 @@ const Look = styled(ImgText)`
 `;
 
 const Gallery = () => {
-  const height = isMobile ? 150 : 500;
-  const secondHeight = isMobile ? 150 : 540;
+  const height = isMobile ? 150 : 498;
+  const secondHeight = isMobile ? 163 : 540;
   const photos = [
     {
       id: 1,
@@ -82,9 +82,9 @@ const Gallery = () => {
     },
     {
       id: 4,
-      src: SESSION4,
+      src: SESSION7,
       height: secondHeight,
-      text: "Wesele w stylu slow w Stodole Borucza",
+      text: "Sesja stylizowana w Pastelowych Polach",
     },
     {
       id: 5,
@@ -96,13 +96,13 @@ const Gallery = () => {
       id: 6,
       src: SESSION6,
       height: height,
-      text: "Sesja ślubna w stylu boho",
+      text: "Sesja kobieca w studio",
     },
     {
       id: 7,
-      src: SESSION7,
+      src: SESSION4,
       height: height,
-      text: "Sesja stylizowana w Pastelowych Polach",
+      text: "Wesele w stylu slow w Stodole Borucza",
     },
   ];
 

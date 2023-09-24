@@ -12,11 +12,7 @@ const InnnerContainer = styled(FlexCenterContainer)`
 `;
 
 function importAll(r) {
-  let images = {};
-  r.keys().forEach((item, index) => {
-    images[item.replace("./", "")] = r(item);
-  });
-  return images;
+  return r.keys().map(r);
 }
 
 const getImagesSection = (params) => {
@@ -26,7 +22,7 @@ const getImagesSection = (params) => {
       images = importAll(
         require.context("../../assets/session1", false, /\.(png|jpe?g|svg)$/)
       );
-      return section(images, [3, 3, 1], false);
+      return section(images, [3], true);
     case "2":
       images = importAll(
         require.context("../../assets/session2", false, /\.(png|jpe?g|svg)$/)
@@ -36,10 +32,30 @@ const getImagesSection = (params) => {
       images = importAll(
         require.context("../../assets/session3", false, /\.(png|jpe?g|svg)$/)
       );
+      return section(images, [3], true);
+    case "4":
+      images = importAll(
+        require.context("../../assets/session4", false, /\.(png|jpe?g|svg)$/)
+      );
       return section(images, [3], false);
+    case "5":
+      images = importAll(
+        require.context("../../assets/session5", false, /\.(png|jpe?g|svg)$/)
+      );
+      return section(images, [3, 2, 1, 3, 3, 1, 3, 1, 3 ], false);
+    case "6":
+      images = importAll(
+        require.context("../../assets/session6", false, /\.(png|jpe?g|svg)$/)
+      );
+      return section(images, [3, 3, 2, 1 ], false);
+    case "7":
+      images = importAll(
+        require.context("../../assets/session7", false, /\.(png|jpe?g|svg)$/)
+      );
+      return section(images, [3, 3, 3, 1, 2 , 3], true);
     default:
       images = importAll(
-        require.context("../../assets/session2", false, /\.(png|jpe?g|svg)$/)
+        require.context("../../assets/session1", false, /\.(png|jpe?g|svg)$/)
       );
       return section(images, [3], false);
   }
@@ -54,7 +70,7 @@ function partition(array, format, index) {
 }
 
 const section = (images, format, isNotEqual) => {
-  const display = Object.keys(images).map((key) => images[key].default);
+  const display = Object.keys(images).map((key) => images[key]);
   return partition(display, format, 0).map((imagePartition, index) =>
     isNotEqual ? (
       <WidtherSection
