@@ -18,7 +18,7 @@ function importAll(r) {
 const getImagesSection = (params) => {
   let images = null;
   switch (params.sessionId) {
-    case "1":
+    case "6":
       images = importAll(
         require.context("../../assets/session1", false, /\.(png|jpe?g|svg)$/)
       );
@@ -28,22 +28,22 @@ const getImagesSection = (params) => {
         require.context("../../assets/session2", false, /\.(png|jpe?g|svg)$/)
       );
       return section(images, [3], false);
-    case "3":
+    case "5":
       images = importAll(
         require.context("../../assets/session3", false, /\.(png|jpe?g|svg)$/)
       );
       return section(images, [3], true);
-    case "4":
+    case "3":
       images = importAll(
         require.context("../../assets/session4", false, /\.(png|jpe?g|svg)$/)
       );
       return section(images, [3], false);
-    case "5":
+    case "1":
       images = importAll(
         require.context("../../assets/session5", false, /\.(png|jpe?g|svg)$/)
       );
       return section(images, [3, 2, 1, 3, 3, 1, 3, 1, 3 ], false);
-    case "6":
+    case "4":
       images = importAll(
         require.context("../../assets/session6", false, /\.(png|jpe?g|svg)$/)
       );
