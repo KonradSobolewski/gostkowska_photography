@@ -32,7 +32,7 @@ const Text = styled(FlexCenterContainer)`
 
 const OffersDiv = styled(FlexCenterContainer)`
   flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
-  padding: 2em 0 0 0;
+  padding: 2em 0 2em 0;
   color: ${Colors.white};
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -143,9 +143,9 @@ const Offers = () => {
       <Text isMobile={isMobile}>oferta</Text>
       <OffersDiv isMobile={isMobile}>{offers1}</OffersDiv>
       <OffersDiv isMobile={isMobile}>{offers2}</OffersDiv>
-      <Button isMobile={isMobile}>
+      {/* <Button isMobile={isMobile}>
         <A href="https://sobolewskaphotography.bookmy.art">UMÓW TERMIN SWOJEJ SESJI</A>
-      </Button>
+      </Button> */}
     </Container>
   );
 };
