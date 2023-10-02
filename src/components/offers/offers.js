@@ -143,9 +143,6 @@ const Offers = () => {
       <Text isMobile={isMobile}>oferta</Text>
       <OffersDiv isMobile={isMobile}>{offers1}</OffersDiv>
       <OffersDiv isMobile={isMobile}>{offers2}</OffersDiv>
-      {/* <Button isMobile={isMobile}>
-        <A href="https://sobolewskaphotography.bookmy.art">UMÓW TERMIN SWOJEJ SESJI</A>
-      </Button> */}
     </Container>
   );
 };
