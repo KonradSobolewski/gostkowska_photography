@@ -124,16 +124,16 @@ const Offers = () => {
     },
     {
       id: 5,
-      title: "Produktowe",
+      title: "Sesja produktowa",
       photo: Produktowe,
-      link: "/oroduktowe",
+      link: "/produktowe",
       alt: "product session"
     },
     {
       id: 6,
       title: "Fotoprodukty",
       photo: Fotoprodukty,
-      link: "/otoprodukty",
+      link: "/fotoprodukty",
       alt: "fotoproduct session"
     },
   ].map((it) => <Offer key={it.title} params={it} />);

@@ -100,7 +100,7 @@ function Content() {
         <Text isMobile={isMobile}>
           <div>
             Mam na imię Martyna, a fotografia towarzyszy mi od dziecka. Swoje
-            pierwsze poważne sesje zdjęciowe zaczęłamrobić ponad 6 lat temu.
+            pierwsze poważne sesje zdjęciowe zaczęłam robić ponad 6 lat temu.
             Przez ten czas stale udoskonalałam swoje umiejętności i poszerzałam
             wiedzę. Z czasem odkryłam swój kierunek w fotografii. Od tego
             momentu wiem, że niezwykłą radość sprawia mi fotografowanie
