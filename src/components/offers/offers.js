@@ -7,7 +7,7 @@ import Slubne from "../../assets/offer/Slubne.jpg";
 import Fotoprodukty from "../../assets/offer/Fotoprodukty.jpg";
 import Produktowe from "../../assets/offer/Produktowe.jpg";
 import BG from "../../assets/offerbg.jpg";
-import { FlexCenterContainer, Colors, A } from "../../style/common";
+import { FlexCenterContainer, Colors} from "../../style/common";
 import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
 
@@ -69,23 +69,6 @@ const Photo = styled.img`
 
   @media (max-width: 1200px) {
     width: 14em;
-  }
-`;
-
-const Button = styled.button`
-  all: unset;
-  padding: 1em 2em;
-  white-space: nowrap;
-  margin: 3em 0 4em 0;
-  font-size: ${(props) => (props.isMobile ? "1em" : "1.5em")};
-  background: ${Colors.cream};
-  cursor: pointer;
-  border: 1px solid #000;
-  transition: all 0.5s ease-in-out;
-  display:flex;
-  align-items: center;
-  :hover {
-    background: ${Colors.lightCream};
   }
 `;
 
